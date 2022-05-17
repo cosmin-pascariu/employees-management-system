@@ -9,3 +9,9 @@ D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs
 D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.dll
 D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.pdb
 D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
+D:\employees-management-system\LibrarieModele\bin\Debug\LibrarieModele.dll
+D:\employees-management-system\LibrarieModele\bin\Debug\LibrarieModele.pdb
+D:\employees-management-system\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
+D:\employees-management-system\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
+D:\employees-management-system\LibrarieModele\obj\Debug\LibrarieModele.dll
+D:\employees-management-system\LibrarieModele\obj\Debug\LibrarieModele.pdb

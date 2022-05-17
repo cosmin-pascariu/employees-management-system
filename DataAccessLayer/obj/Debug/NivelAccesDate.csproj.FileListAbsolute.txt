@@ -9,3 +9,13 @@ D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.CoreCompileInput
 D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.CopyComplete
 D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.dll
 D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.pdb
+D:\employees-management-system\DataAccessLayer\bin\Debug\NivelAccesDate.dll
+D:\employees-management-system\DataAccessLayer\bin\Debug\NivelAccesDate.pdb
+D:\employees-management-system\DataAccessLayer\bin\Debug\LibrarieModele.dll
+D:\employees-management-system\DataAccessLayer\bin\Debug\Oracle.DataAccess.dll
+D:\employees-management-system\DataAccessLayer\bin\Debug\LibrarieModele.pdb
+D:\employees-management-system\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.AssemblyReference.cache
+D:\employees-management-system\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.CoreCompileInputs.cache
+D:\employees-management-system\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.CopyComplete
+D:\employees-management-system\DataAccessLayer\obj\Debug\NivelAccesDate.dll
+D:\employees-management-system\DataAccessLayer\obj\Debug\NivelAccesDate.pdb
