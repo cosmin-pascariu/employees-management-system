@@ -1,0 +1,11 @@
+F:\_univ\BD\2019\Lab10-2019\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.csprojResolveAssemblyReference.cache
+D:\DotNetOracle\DataAccessLayer\bin\Debug\NivelAccesDate.dll
+D:\DotNetOracle\DataAccessLayer\bin\Debug\NivelAccesDate.pdb
+D:\DotNetOracle\DataAccessLayer\bin\Debug\LibrarieModele.dll
+D:\DotNetOracle\DataAccessLayer\bin\Debug\Oracle.DataAccess.dll
+D:\DotNetOracle\DataAccessLayer\bin\Debug\LibrarieModele.pdb
+D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.AssemblyReference.cache
+D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.CoreCompileInputs.cache
+D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.csproj.CopyComplete
+D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.dll
+D:\DotNetOracle\DataAccessLayer\obj\Debug\NivelAccesDate.pdb

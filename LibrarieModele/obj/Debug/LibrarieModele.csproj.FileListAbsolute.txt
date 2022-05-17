@@ -1,0 +1,11 @@
+F:\_univ\BD\2019\Lab10-2019\DotNetOracle\LibrarieModele\bin\Debug\LibrarieModele.dll
+F:\_univ\BD\2019\Lab10-2019\DotNetOracle\LibrarieModele\bin\Debug\LibrarieModele.pdb
+F:\_univ\BD\2019\Lab10-2019\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.csprojResolveAssemblyReference.cache
+F:\_univ\BD\2019\Lab10-2019\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.dll
+F:\_univ\BD\2019\Lab10-2019\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.pdb
+D:\DotNetOracle\LibrarieModele\bin\Debug\LibrarieModele.dll
+D:\DotNetOracle\LibrarieModele\bin\Debug\LibrarieModele.pdb
+D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
+D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.dll
+D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.pdb
+D:\DotNetOracle\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
