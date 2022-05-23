@@ -59,6 +59,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboItem.cs" />
+    <Compile Include="departmentsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="departmentsForm.Designer.cs">
+      <DependentUpon>departmentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employeesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="employeesForm.Designer.cs">
+      <DependentUpon>employeesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="homeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="homeForm.Designer.cs">
+      <DependentUpon>homeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jobsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="jobsForm.Designer.cs">
+      <DependentUpon>jobsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +104,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="departmentsForm.resx">
+      <DependentUpon>departmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employeesForm.resx">
+      <DependentUpon>employeesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormaAfisare.resx">
       <DependentUpon>FormaAfisare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormaAdaugare.resx">
       <DependentUpon>FormaAdaugare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="homeForm.resx">
+      <DependentUpon>homeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jobsForm.resx">
+      <DependentUpon>jobsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPanel.resx">
       <DependentUpon>MainPanel.cs</DependentUpon>

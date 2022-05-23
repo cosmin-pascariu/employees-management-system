@@ -31,16 +31,15 @@ namespace InterfataUtilizator
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPanel));
-            this.btnInchirieri = new System.Windows.Forms.Button();
             this.btnGit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.pctExit = new System.Windows.Forms.PictureBox();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.btnAcasa = new System.Windows.Forms.Button();
-            this.btnAngajati = new System.Windows.Forms.Button();
-            this.btnMasini = new System.Windows.Forms.Button();
-            this.btnClienti = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnJobs = new System.Windows.Forms.Button();
+            this.btnDepartments = new System.Windows.Forms.Button();
+            this.btnEmployees = new System.Windows.Forms.Button();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlJos = new System.Windows.Forms.Panel();
@@ -49,30 +48,16 @@ namespace InterfataUtilizator
             this.lblAutor = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMeniu = new System.Windows.Forms.Panel();
-            this.pnlContinut = new System.Windows.Forms.Panel();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.panelContainer = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).BeginInit();
             this.pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlJos.SuspendLayout();
             this.pnlMeniu.SuspendLayout();
+            this.panelContent.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnInchirieri
-            // 
-            this.btnInchirieri.BackColor = System.Drawing.Color.Transparent;
-            this.btnInchirieri.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInchirieri.BackgroundImage")));
-            this.btnInchirieri.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnInchirieri.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInchirieri.FlatAppearance.BorderSize = 0;
-            this.btnInchirieri.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnInchirieri.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnInchirieri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInchirieri.Location = new System.Drawing.Point(1, 420);
-            this.btnInchirieri.Name = "btnInchirieri";
-            this.btnInchirieri.Size = new System.Drawing.Size(65, 65);
-            this.btnInchirieri.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.btnInchirieri, "Inchirieri");
-            this.btnInchirieri.UseVisualStyleBackColor = false;
             // 
             // btnGit
             // 
@@ -87,6 +72,7 @@ namespace InterfataUtilizator
             this.btnGit.Size = new System.Drawing.Size(27, 27);
             this.btnGit.TabIndex = 7;
             this.btnGit.UseVisualStyleBackColor = true;
+            this.btnGit.Click += new System.EventHandler(this.btnGit_Click);
             // 
             // button1
             // 
@@ -103,17 +89,6 @@ namespace InterfataUtilizator
             this.button1.TabIndex = 6;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Garamond", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(66, 14);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(83, 36);
-            this.lblTitle.TabIndex = 5;
-            this.lblTitle.Text = "SEM";
-            // 
             // pctExit
             // 
             this.pctExit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -129,9 +104,9 @@ namespace InterfataUtilizator
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Controls.Add(this.btnGit);
             this.pnlTop.Controls.Add(this.button1);
-            this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Controls.Add(this.pctExit);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(68, 0);
@@ -142,75 +117,89 @@ namespace InterfataUtilizator
             this.pnlTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseMove);
             this.pnlTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseUp);
             // 
-            // btnAcasa
+            // pictureBox1
             // 
-            this.btnAcasa.BackColor = System.Drawing.Color.Transparent;
-            this.btnAcasa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAcasa.BackgroundImage")));
-            this.btnAcasa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAcasa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAcasa.FlatAppearance.BorderSize = 0;
-            this.btnAcasa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnAcasa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAcasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcasa.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAcasa.Location = new System.Drawing.Point(1, 137);
-            this.btnAcasa.Name = "btnAcasa";
-            this.btnAcasa.Size = new System.Drawing.Size(65, 65);
-            this.btnAcasa.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnAcasa, "Acasa");
-            this.btnAcasa.UseVisualStyleBackColor = false;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(44, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 55);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
-            // btnAngajati
+            // btnHome
             // 
-            this.btnAngajati.BackColor = System.Drawing.Color.Transparent;
-            this.btnAngajati.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAngajati.BackgroundImage")));
-            this.btnAngajati.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAngajati.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAngajati.FlatAppearance.BorderSize = 0;
-            this.btnAngajati.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnAngajati.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAngajati.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAngajati.Location = new System.Drawing.Point(1, 278);
-            this.btnAngajati.Name = "btnAngajati";
-            this.btnAngajati.Size = new System.Drawing.Size(65, 65);
-            this.btnAngajati.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnAngajati, "Angajati");
-            this.btnAngajati.UseVisualStyleBackColor = false;
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHome.BackgroundImage")));
+            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.ForeColor = System.Drawing.Color.Transparent;
+            this.btnHome.Location = new System.Drawing.Point(1, 137);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(65, 65);
+            this.btnHome.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btnHome, "Home");
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // btnMasini
+            // btnJobs
             // 
-            this.btnMasini.BackColor = System.Drawing.Color.Transparent;
-            this.btnMasini.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMasini.BackgroundImage")));
-            this.btnMasini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMasini.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMasini.FlatAppearance.BorderSize = 0;
-            this.btnMasini.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnMasini.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnMasini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMasini.Location = new System.Drawing.Point(1, 349);
-            this.btnMasini.Name = "btnMasini";
-            this.btnMasini.Size = new System.Drawing.Size(65, 65);
-            this.btnMasini.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnMasini, "Masini");
-            this.btnMasini.UseVisualStyleBackColor = false;
+            this.btnJobs.BackColor = System.Drawing.Color.Transparent;
+            this.btnJobs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnJobs.BackgroundImage")));
+            this.btnJobs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnJobs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnJobs.FlatAppearance.BorderSize = 0;
+            this.btnJobs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnJobs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnJobs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJobs.Location = new System.Drawing.Point(1, 278);
+            this.btnJobs.Name = "btnJobs";
+            this.btnJobs.Size = new System.Drawing.Size(65, 65);
+            this.btnJobs.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btnJobs, "Jobs");
+            this.btnJobs.UseVisualStyleBackColor = false;
+            this.btnJobs.Click += new System.EventHandler(this.btnJobs_Click);
             // 
-            // btnClienti
+            // btnDepartments
             // 
-            this.btnClienti.BackColor = System.Drawing.Color.Transparent;
-            this.btnClienti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClienti.BackgroundImage")));
-            this.btnClienti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClienti.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClienti.FlatAppearance.BorderSize = 0;
-            this.btnClienti.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnClienti.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnClienti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClienti.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClienti.Location = new System.Drawing.Point(1, 208);
-            this.btnClienti.Name = "btnClienti";
-            this.btnClienti.Size = new System.Drawing.Size(65, 65);
-            this.btnClienti.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnClienti, "Clienti");
-            this.btnClienti.UseVisualStyleBackColor = false;
+            this.btnDepartments.BackColor = System.Drawing.Color.Transparent;
+            this.btnDepartments.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDepartments.BackgroundImage")));
+            this.btnDepartments.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDepartments.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDepartments.FlatAppearance.BorderSize = 0;
+            this.btnDepartments.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnDepartments.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDepartments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDepartments.Location = new System.Drawing.Point(1, 349);
+            this.btnDepartments.Name = "btnDepartments";
+            this.btnDepartments.Size = new System.Drawing.Size(65, 65);
+            this.btnDepartments.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btnDepartments, "Departments");
+            this.btnDepartments.UseVisualStyleBackColor = false;
+            this.btnDepartments.Click += new System.EventHandler(this.btnDepartments_Click);
+            // 
+            // btnEmployees
+            // 
+            this.btnEmployees.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmployees.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEmployees.BackgroundImage")));
+            this.btnEmployees.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmployees.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmployees.FlatAppearance.BorderSize = 0;
+            this.btnEmployees.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnEmployees.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployees.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEmployees.Location = new System.Drawing.Point(1, 208);
+            this.btnEmployees.Name = "btnEmployees";
+            this.btnEmployees.Size = new System.Drawing.Size(65, 65);
+            this.btnEmployees.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnEmployees, "Employees");
+            this.btnEmployees.UseVisualStyleBackColor = false;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // pctLogo
             // 
@@ -272,11 +261,10 @@ namespace InterfataUtilizator
             // pnlMeniu
             // 
             this.pnlMeniu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.pnlMeniu.Controls.Add(this.btnAcasa);
-            this.pnlMeniu.Controls.Add(this.btnInchirieri);
-            this.pnlMeniu.Controls.Add(this.btnAngajati);
-            this.pnlMeniu.Controls.Add(this.btnMasini);
-            this.pnlMeniu.Controls.Add(this.btnClienti);
+            this.pnlMeniu.Controls.Add(this.btnHome);
+            this.pnlMeniu.Controls.Add(this.btnJobs);
+            this.pnlMeniu.Controls.Add(this.btnDepartments);
+            this.pnlMeniu.Controls.Add(this.btnEmployees);
             this.pnlMeniu.Controls.Add(this.pctLogo);
             this.pnlMeniu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMeniu.Location = new System.Drawing.Point(0, 0);
@@ -284,14 +272,22 @@ namespace InterfataUtilizator
             this.pnlMeniu.Size = new System.Drawing.Size(68, 638);
             this.pnlMeniu.TabIndex = 12;
             // 
-            // pnlContinut
+            // panelContent
             // 
-            this.pnlContinut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.pnlContinut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContinut.Location = new System.Drawing.Point(0, 0);
-            this.pnlContinut.Name = "pnlContinut";
-            this.pnlContinut.Size = new System.Drawing.Size(1204, 638);
-            this.pnlContinut.TabIndex = 15;
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panelContent.Controls.Add(this.panelContainer);
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(0, 0);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(1204, 638);
+            this.panelContent.TabIndex = 15;
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Location = new System.Drawing.Point(68, 62);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1136, 547);
+            this.panelContainer.TabIndex = 0;
             // 
             // MainPanel
             // 
@@ -302,7 +298,7 @@ namespace InterfataUtilizator
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.pnlJos);
             this.Controls.Add(this.pnlMeniu);
-            this.Controls.Add(this.pnlContinut);
+            this.Controls.Add(this.panelContent);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainPanel";
@@ -311,28 +307,26 @@ namespace InterfataUtilizator
             this.Load += new System.EventHandler(this.MainPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).EndInit();
             this.pnlTop.ResumeLayout(false);
-            this.pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlJos.ResumeLayout(false);
             this.pnlJos.PerformLayout();
             this.pnlMeniu.ResumeLayout(false);
+            this.panelContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnInchirieri;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnGit;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pctExit;
         private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.Button btnAcasa;
-        private System.Windows.Forms.Button btnAngajati;
-        private System.Windows.Forms.Button btnMasini;
-        private System.Windows.Forms.Button btnClienti;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnJobs;
+        private System.Windows.Forms.Button btnDepartments;
+        private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Panel pnlJos;
         private System.Windows.Forms.Label lblTime;
@@ -340,6 +334,8 @@ namespace InterfataUtilizator
         private System.Windows.Forms.Label lblAutor;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel pnlMeniu;
-        private System.Windows.Forms.Panel pnlContinut;
+        private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Panel panelContainer;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
