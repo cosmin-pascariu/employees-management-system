@@ -63,11 +63,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrareDepartments.cs" />
+    <Compile Include="AdministrareEmployees.cs" />
+    <Compile Include="AdministrareEmployeesInDepartments.cs" />
     <Compile Include="AdministrareMasini.cs" />
     <Compile Include="AdministrareCompanii.cs" />
+    <Compile Include="AdministrareRoles.cs" />
+    <Compile Include="IStocareDepartments.cs" />
+    <Compile Include="IStocareEmployeeInDepartment.cs" />
+    <Compile Include="IStocareEmployees.cs" />
     <Compile Include="IStocareFactory.cs" />
     <Compile Include="IStocareMasini.cs" />
     <Compile Include="IStocareCompanii.cs" />
+    <Compile Include="IStocareRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLDbHelper.cs" />
   </ItemGroup>

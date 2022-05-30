@@ -7,7 +7,7 @@ namespace NivelAccesDate
 {
     public interface IStocareMasini: IStocareFactory
     {
-        List<Masina> GetMasini();
+        List<Masina> GetMasini(); 
         Masina GetMasina(int id);
         bool AddMasina(Masina m);
 

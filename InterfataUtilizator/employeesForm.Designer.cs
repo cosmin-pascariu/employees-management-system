@@ -32,7 +32,7 @@ namespace InterfataUtilizator
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.grbAddEmployee = new System.Windows.Forms.GroupBox();
+            this.grbAddAndUpdateEmployee = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.cbxEmployeeDepartment = new System.Windows.Forms.ComboBox();
@@ -63,46 +63,46 @@ namespace InterfataUtilizator
             this.btnShowEmployees = new System.Windows.Forms.Button();
             this.grbSearchEmployees = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.grbAddEmployee.SuspendLayout();
+            this.grbAddAndUpdateEmployee.SuspendLayout();
             this.grbShowEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.grbSearchEmployees.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grbAddEmployee
+            // grbAddAndUpdateEmployee
             // 
-            this.grbAddEmployee.Controls.Add(this.btnReset);
-            this.grbAddEmployee.Controls.Add(this.lblMessage);
-            this.grbAddEmployee.Controls.Add(this.cbxEmployeeDepartment);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeDepartment);
-            this.grbAddEmployee.Controls.Add(this.cbxEmployeeRole);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeRole);
-            this.grbAddEmployee.Controls.Add(this.txtEmployeeSalary);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeSalary);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeHireDate);
-            this.grbAddEmployee.Controls.Add(this.dtpEmployeeHireDate);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeBirthDate);
-            this.grbAddEmployee.Controls.Add(this.dtpEmployeeBirthDate);
-            this.grbAddEmployee.Controls.Add(this.txtEmployeePhoneNumber);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeePhoneNumber);
-            this.grbAddEmployee.Controls.Add(this.txtEmployeeEmail);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeEmail);
-            this.grbAddEmployee.Controls.Add(this.lblMesaj);
-            this.grbAddEmployee.Controls.Add(this.btnAddEmployee);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeLastName);
-            this.grbAddEmployee.Controls.Add(this.txtEmployeeCNP);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeFirstName);
-            this.grbAddEmployee.Controls.Add(this.txtEmployeeFirstName);
-            this.grbAddEmployee.Controls.Add(this.lblEmployeeCNP);
-            this.grbAddEmployee.Controls.Add(this.txtEmployeeLastName);
-            this.grbAddEmployee.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbAddEmployee.ForeColor = System.Drawing.Color.White;
-            this.grbAddEmployee.Location = new System.Drawing.Point(15, 3);
-            this.grbAddEmployee.Name = "grbAddEmployee";
-            this.grbAddEmployee.Size = new System.Drawing.Size(254, 523);
-            this.grbAddEmployee.TabIndex = 24;
-            this.grbAddEmployee.TabStop = false;
-            this.grbAddEmployee.Text = "Add employee";
+            this.grbAddAndUpdateEmployee.Controls.Add(this.btnReset);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblMessage);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.cbxEmployeeDepartment);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeDepartment);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.cbxEmployeeRole);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeRole);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.txtEmployeeSalary);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeSalary);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeHireDate);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.dtpEmployeeHireDate);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeBirthDate);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.dtpEmployeeBirthDate);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.txtEmployeePhoneNumber);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeePhoneNumber);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.txtEmployeeEmail);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeEmail);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblMesaj);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.btnAddEmployee);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeLastName);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.txtEmployeeCNP);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeFirstName);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.txtEmployeeFirstName);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeCNP);
+            this.grbAddAndUpdateEmployee.Controls.Add(this.txtEmployeeLastName);
+            this.grbAddAndUpdateEmployee.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbAddAndUpdateEmployee.ForeColor = System.Drawing.Color.White;
+            this.grbAddAndUpdateEmployee.Location = new System.Drawing.Point(15, 3);
+            this.grbAddAndUpdateEmployee.Name = "grbAddAndUpdateEmployee";
+            this.grbAddAndUpdateEmployee.Size = new System.Drawing.Size(254, 523);
+            this.grbAddAndUpdateEmployee.TabIndex = 24;
+            this.grbAddAndUpdateEmployee.TabStop = false;
+            this.grbAddAndUpdateEmployee.Text = "Add/Update employee";
             // 
             // btnReset
             // 
@@ -228,9 +228,9 @@ namespace InterfataUtilizator
             this.lblEmployeeHireDate.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeHireDate.Location = new System.Drawing.Point(7, 272);
             this.lblEmployeeHireDate.Name = "lblEmployeeHireDate";
-            this.lblEmployeeHireDate.Size = new System.Drawing.Size(87, 21);
+            this.lblEmployeeHireDate.Size = new System.Drawing.Size(82, 21);
             this.lblEmployeeHireDate.TabIndex = 35;
-            this.lblEmployeeHireDate.Text = "Birth date";
+            this.lblEmployeeHireDate.Text = "Hire date";
             // 
             // dtpEmployeeHireDate
             // 
@@ -256,7 +256,7 @@ namespace InterfataUtilizator
             // dtpEmployeeBirthDate
             // 
             this.dtpEmployeeBirthDate.Location = new System.Drawing.Point(130, 232);
-            this.dtpEmployeeBirthDate.MaxDate = new System.DateTime(2022, 5, 19, 0, 0, 0, 0);
+            this.dtpEmployeeBirthDate.MaxDate = new System.DateTime(2022, 5, 26, 0, 0, 0, 0);
             this.dtpEmployeeBirthDate.MinDate = new System.DateTime(1922, 1, 1, 0, 0, 0, 0);
             this.dtpEmployeeBirthDate.Name = "dtpEmployeeBirthDate";
             this.dtpEmployeeBirthDate.Size = new System.Drawing.Size(117, 31);
@@ -329,6 +329,7 @@ namespace InterfataUtilizator
             this.btnAddEmployee.TabIndex = 4;
             this.btnAddEmployee.Text = "Add";
             this.btnAddEmployee.UseVisualStyleBackColor = false;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // lblEmployeeLastName
             // 
@@ -505,11 +506,11 @@ namespace InterfataUtilizator
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Controls.Add(this.grbSearchEmployees);
             this.Controls.Add(this.grbShowEmployees);
-            this.Controls.Add(this.grbAddEmployee);
+            this.Controls.Add(this.grbAddAndUpdateEmployee);
             this.Name = "employeesForm";
             this.Size = new System.Drawing.Size(1136, 547);
-            this.grbAddEmployee.ResumeLayout(false);
-            this.grbAddEmployee.PerformLayout();
+            this.grbAddAndUpdateEmployee.ResumeLayout(false);
+            this.grbAddAndUpdateEmployee.PerformLayout();
             this.grbShowEmployees.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.grbSearchEmployees.ResumeLayout(false);
@@ -519,7 +520,7 @@ namespace InterfataUtilizator
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grbAddEmployee;
+        private System.Windows.Forms.GroupBox grbAddAndUpdateEmployee;
         private System.Windows.Forms.Label lblMesaj;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Label lblEmployeeLastName;
