@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NivelAccesDate
 {
-    interface IStocareEmployeeInDepartment : IStocareFactory
+    public interface IStocareEmployeeInDepartment : IStocareFactory
     {
         List<EmployeeInDepartment> GetEmployeesInDepartments();
         EmployeeInDepartment GetEmployeeInDepartment(int id);

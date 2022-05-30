@@ -5,12 +5,12 @@ using Oracle.DataAccess.Client;
 
 namespace NivelAccesDate
 {
-    public class AdministrareDepartments
+    public class AdministrareDepartments : IStocareDepartments
     {
         private const int FIRST_TABLE= 0;
         private const int FIRST_LINE = 0;
 
-        public List<Department> GetDepartment()
+        public List<Department> GetDepartments()
         {
             var result = new List<Department>();
             var dsDepartments = SqlDBHelper.ExecuteDataSet("select * from Departments_SEM", CommandType.Text);

@@ -125,9 +125,8 @@ namespace InterfataUtilizator
             this.lblMessage.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(7, 416);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(61, 17);
+            this.lblMessage.Size = new System.Drawing.Size(0, 17);
             this.lblMessage.TabIndex = 42;
-            this.lblMessage.Text = "Message";
             // 
             // cbxEmployeeDepartment
             // 
@@ -404,9 +403,9 @@ namespace InterfataUtilizator
             this.grbShowEmployees.Controls.Add(this.btnShowEmployees);
             this.grbShowEmployees.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbShowEmployees.ForeColor = System.Drawing.Color.White;
-            this.grbShowEmployees.Location = new System.Drawing.Point(282, 285);
+            this.grbShowEmployees.Location = new System.Drawing.Point(282, 204);
             this.grbShowEmployees.Name = "grbShowEmployees";
-            this.grbShowEmployees.Size = new System.Drawing.Size(842, 241);
+            this.grbShowEmployees.Size = new System.Drawing.Size(842, 322);
             this.grbShowEmployees.TabIndex = 25;
             this.grbShowEmployees.TabStop = false;
             this.grbShowEmployees.Text = "Show Employees";
@@ -417,13 +416,14 @@ namespace InterfataUtilizator
             this.btnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteEmployee.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(6, 202);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(6, 283);
             this.btnDeleteEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
             this.btnDeleteEmployee.Size = new System.Drawing.Size(86, 32);
             this.btnDeleteEmployee.TabIndex = 8;
             this.btnDeleteEmployee.Text = "Delete";
             this.btnDeleteEmployee.UseVisualStyleBackColor = false;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
             // dgvEmployees
             // 
@@ -456,8 +456,9 @@ namespace InterfataUtilizator
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEmployees.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEmployees.Size = new System.Drawing.Size(828, 173);
+            this.dgvEmployees.Size = new System.Drawing.Size(828, 253);
             this.dgvEmployees.TabIndex = 6;
+            this.dgvEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellContentClick);
             // 
             // btnShowEmployees
             // 
@@ -465,13 +466,14 @@ namespace InterfataUtilizator
             this.btnShowEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowEmployees.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowEmployees.ForeColor = System.Drawing.Color.White;
-            this.btnShowEmployees.Location = new System.Drawing.Point(748, 203);
+            this.btnShowEmployees.Location = new System.Drawing.Point(748, 284);
             this.btnShowEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowEmployees.Name = "btnShowEmployees";
             this.btnShowEmployees.Size = new System.Drawing.Size(86, 32);
             this.btnShowEmployees.TabIndex = 5;
             this.btnShowEmployees.Text = "Show";
             this.btnShowEmployees.UseVisualStyleBackColor = false;
+            this.btnShowEmployees.Click += new System.EventHandler(this.btnShowEmployees_Click);
             // 
             // grbSearchEmployees
             // 

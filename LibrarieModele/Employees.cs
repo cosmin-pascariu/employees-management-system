@@ -12,6 +12,7 @@ namespace LibrarieModele
         public int employee_id { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
+        public string cnp { get; set; }
         public string email { get; set; }
         public string phone_number { get; set; }
         public DateTime birth_date { get; set; }
@@ -23,11 +24,12 @@ namespace LibrarieModele
 
         }
 
-        public Employees( string firstName, string lastName,string email, string phoneNumber,DateTime birthDate, DateTime hireDate,double salary, int employeeId = 0)
+        public Employees( string firstName, string lastName,string cnp, string email, string phoneNumber,DateTime birthDate, DateTime hireDate,double salary, int employeeId = 0)
         {
             employee_id = employeeId;
             first_name = firstName;
             last_name = lastName;
+            this.cnp = cnp;
             this.email = email;
             phone_number = phoneNumber;
             birth_date = birthDate;
@@ -40,6 +42,7 @@ namespace LibrarieModele
             employee_id = Convert.ToInt32(lineFromDB["employee_id"].ToString());
             first_name = lineFromDB["first_name"].ToString();
             last_name = lineFromDB["last_name"].ToString();
+            cnp = lineFromDB["cnp"].ToString();
             this.email = lineFromDB["email"].ToString();
             phone_number = lineFromDB["phone_number"].ToString();
             birth_date = Convert.ToDateTime(lineFromDB["birth_date"].ToString());

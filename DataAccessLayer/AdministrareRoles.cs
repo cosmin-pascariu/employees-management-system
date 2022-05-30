@@ -5,7 +5,7 @@ using Oracle.DataAccess.Client;
 
 namespace NivelAccesDate
 {
-    class AdministrareRoles
+    public class AdministrareRoles : IStocareRoles
     {
         private const int FIRST_TABLE = 0;
         private const int FIRST_LINE = 0;

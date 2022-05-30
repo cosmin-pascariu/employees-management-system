@@ -7,7 +7,7 @@ using LibrarieModele;
 
 namespace NivelAccesDate
 {
-    interface IStocareRoles : IStocareFactory
+    public interface IStocareRoles : IStocareFactory
     {
         List<Role> GetRoles();
         Role GetRole(int id);

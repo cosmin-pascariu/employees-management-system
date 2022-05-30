@@ -7,7 +7,7 @@ using LibrarieModele;
 
 namespace NivelAccesDate
 {
-    interface IStocareDepartments:IStocareFactory
+    public interface IStocareDepartments:IStocareFactory
     {
         List<Department> GetDepartments();
         Department GetDepartment(int id);

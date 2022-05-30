@@ -5,12 +5,12 @@ using Oracle.DataAccess.Client;
 
 namespace NivelAccesDate
 {
-    public class AdministrareEmployeesInDepartments
+    public class AdministrareEmployeesInDepartments : IStocareEmployeeInDepartment
     {
         private const int FIRST_TABLE = 0;
         private const int FIRST_LINE = 0;
 
-        public List<EmployeeInDepartment> GetEmployeeInDepartments()
+        public List<EmployeeInDepartment> GetEmployeesInDepartments()
         {
             var result = new List<EmployeeInDepartment>();
             var dsEmployeesInDepartments = SqlDBHelper.ExecuteDataSet("select * from EmployeesInDepartments", CommandType.Text);
