@@ -21,7 +21,7 @@ namespace InterfataUtilizator
             InitializeComponent();
             SetMyCustomFormat();
             CheckStorage();
-        }
+        } 
 
         public void CheckStorage()
         {
@@ -45,17 +45,7 @@ namespace InterfataUtilizator
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtEmployeeFirstName.Text = null;
-            txtEmployeeLastName.Text = null;
-            txtEmployeeCNP.Text = null;
-            txtEmployeeEmail.Text = null;
-            txtEmployeePhoneNumber.Text = null;
-            dtpEmployeeBirthDate.Value = DateTime.Today.AddYears(-16);
-            dtpEmployeeHireDate.Value = DateTime.Today;
-            txtEmployeeSalary.Text = null;
-            cbxEmployeeRole.SelectedIndex = -1;
-            cbxEmployeeDepartment.SelectedIndex = -1;
-            lblMessage.Text = null;
+            resetControls();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -73,10 +63,12 @@ namespace InterfataUtilizator
                     double.Parse(txtEmployeeSalary.Text),
                     0
                  ) ;
-               // var employee = new Employees("Anonim","Anonim","1111111111111","anonim@gmail.com","0767848788",Convert.ToDateTime(dtpEmployeeBirthDate.Text),Convert.ToDateTime(dtpEmployeeHireDate.Text),3850.50,5);
+               
                 var rezultat = stocareEmployees.AddEmployee(employee);
                 if (rezultat == SUCCES)
                 {
+                    resetControls();
+                    btnShowEmployees_Click(sender, e);
                     lblMessage.ForeColor = Color.Green;
                     lblMessage.Text = "Employee added!";
                 }
@@ -157,6 +149,61 @@ namespace InterfataUtilizator
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void btnUpdateEmployee_Click(object sender, EventArgs e)
+        {
+            int currentRowIndex = dgvEmployees.CurrentCell.RowIndex;
+            string employeeID = dgvEmployees[FIRST_COLUMN, currentRowIndex].Value.ToString();
+
+            try
+            {
+                Employees emp = stocareEmployees.GetEmployee(Int32.Parse(employeeID));
+                if (emp != null)
+                {
+                    emp.first_name = txtEmployeeFirstName.Text;
+                    emp.last_name = txtEmployeeLastName.Text;
+                    emp.cnp = txtEmployeeCNP.Text;
+                    emp.email = txtEmployeeEmail.Text;
+                    emp.phone_number = txtEmployeePhoneNumber.Text;
+                    emp.birth_date = Convert.ToDateTime(dtpEmployeeBirthDate.Text);
+                    emp.hire_date = Convert.ToDateTime(dtpEmployeeBirthDate.Text);
+                    emp.salary = double.Parse(txtEmployeeSalary.Text);
+                }
+
+                var rezultat = stocareEmployees.UpdateEmployee(emp);
+                if (rezultat == SUCCES)
+                {
+                    resetControls();
+                    btnShowEmployees_Click(sender,e);
+                    lblMessage.ForeColor = Color.Green;
+                    lblMessage.Text = "Updated employee!";
+                }
+                else
+                {
+                    lblMessage.ForeColor = Color.Red;
+                    lblMessage.Text = "Employee update error!";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Excception" + ex.Message);
+            }
+        }
+
+        public void resetControls()
+        {
+            txtEmployeeFirstName.Text = null;
+            txtEmployeeLastName.Text = null;
+            txtEmployeeCNP.Text = null;
+            txtEmployeeEmail.Text = null;
+            txtEmployeePhoneNumber.Text = null;
+            dtpEmployeeBirthDate.Value = DateTime.Today.AddYears(-16);
+            dtpEmployeeHireDate.Value = DateTime.Today;
+            txtEmployeeSalary.Text = null;
+            cbxEmployeeRole.SelectedIndex = -1;
+            cbxEmployeeDepartment.SelectedIndex = -1;
+            lblMessage.Text = null;
         }
     }
 }

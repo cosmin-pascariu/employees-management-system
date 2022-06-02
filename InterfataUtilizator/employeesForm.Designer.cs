@@ -32,7 +32,11 @@ namespace InterfataUtilizator
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grbAddAndUpdateEmployee = new System.Windows.Forms.GroupBox();
+            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.cbxEmployeeDepartment = new System.Windows.Forms.ComboBox();
@@ -63,14 +67,17 @@ namespace InterfataUtilizator
             this.btnShowEmployees = new System.Windows.Forms.Button();
             this.grbSearchEmployees = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.dgvSearchEmployee = new System.Windows.Forms.DataGridView();
             this.grbAddAndUpdateEmployee.SuspendLayout();
             this.grbShowEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.grbSearchEmployees.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // grbAddAndUpdateEmployee
             // 
+            this.grbAddAndUpdateEmployee.Controls.Add(this.btnUpdateEmployee);
             this.grbAddAndUpdateEmployee.Controls.Add(this.btnReset);
             this.grbAddAndUpdateEmployee.Controls.Add(this.lblMessage);
             this.grbAddAndUpdateEmployee.Controls.Add(this.cbxEmployeeDepartment);
@@ -104,16 +111,31 @@ namespace InterfataUtilizator
             this.grbAddAndUpdateEmployee.TabStop = false;
             this.grbAddAndUpdateEmployee.Text = "Add/Update employee";
             // 
+            // btnUpdateEmployee
+            // 
+            this.btnUpdateEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateEmployee.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateEmployee.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(90, 484);
+            this.btnUpdateEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(75, 32);
+            this.btnUpdateEmployee.TabIndex = 44;
+            this.btnUpdateEmployee.Text = "Update";
+            this.btnUpdateEmployee.UseVisualStyleBackColor = false;
+            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
+            // 
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(12, 484);
+            this.btnReset.Location = new System.Drawing.Point(7, 484);
             this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(86, 32);
+            this.btnReset.Size = new System.Drawing.Size(75, 32);
             this.btnReset.TabIndex = 43;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
@@ -321,10 +343,10 @@ namespace InterfataUtilizator
             this.btnAddEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEmployee.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnAddEmployee.Location = new System.Drawing.Point(162, 484);
+            this.btnAddEmployee.Location = new System.Drawing.Point(173, 484);
             this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(86, 32);
+            this.btnAddEmployee.Size = new System.Drawing.Size(75, 32);
             this.btnAddEmployee.TabIndex = 4;
             this.btnAddEmployee.Text = "Add";
             this.btnAddEmployee.UseVisualStyleBackColor = false;
@@ -477,12 +499,13 @@ namespace InterfataUtilizator
             // 
             // grbSearchEmployees
             // 
+            this.grbSearchEmployees.Controls.Add(this.dgvSearchEmployee);
             this.grbSearchEmployees.Controls.Add(this.btnSearch);
             this.grbSearchEmployees.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbSearchEmployees.ForeColor = System.Drawing.Color.White;
             this.grbSearchEmployees.Location = new System.Drawing.Point(282, 3);
             this.grbSearchEmployees.Name = "grbSearchEmployees";
-            this.grbSearchEmployees.Size = new System.Drawing.Size(842, 72);
+            this.grbSearchEmployees.Size = new System.Drawing.Size(842, 202);
             this.grbSearchEmployees.TabIndex = 26;
             this.grbSearchEmployees.TabStop = false;
             this.grbSearchEmployees.Text = "Search employee";
@@ -501,6 +524,40 @@ namespace InterfataUtilizator
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             // 
+            // dgvSearchEmployee
+            // 
+            this.dgvSearchEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSearchEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSearchEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSearchEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSearchEmployee.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvSearchEmployee.Location = new System.Drawing.Point(6, 64);
+            this.dgvSearchEmployee.Name = "dgvSearchEmployee";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSearchEmployee.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvSearchEmployee.Size = new System.Drawing.Size(828, 123);
+            this.dgvSearchEmployee.TabIndex = 7;
+            // 
             // employeesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,6 +573,7 @@ namespace InterfataUtilizator
             this.grbShowEmployees.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.grbSearchEmployees.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchEmployee)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -553,5 +611,7 @@ namespace InterfataUtilizator
         private System.Windows.Forms.Button btnShowEmployees;
         private System.Windows.Forms.GroupBox grbSearchEmployees;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnUpdateEmployee;
+        private System.Windows.Forms.DataGridView dgvSearchEmployee;
     }
 }

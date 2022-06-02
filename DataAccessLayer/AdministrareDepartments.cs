@@ -55,5 +55,12 @@ namespace NivelAccesDate
                  new OracleParameter(":department_id", OracleDbType.Int32, d.department_id, ParameterDirection.Input)
             );
         }
+
+        public bool DeleteDepartment(int id)
+        {
+            return SqlDBHelper.ExecuteNonQuery(
+                "DELETE from Departments_SEM WHERE department_id = :department_id", CommandType.Text, new OracleParameter(":department_id", OracleDbType.Int32, id, ParameterDirection.Input)
+                );
+        }
     }
 }

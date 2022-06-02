@@ -33,6 +33,14 @@ namespace InterfataUtilizator
                         {
                             return new AdministrareEmployees();
                         }
+                        if (tipEntitate == typeof(Role))
+                        {
+                            return new AdministrareRoles();
+                        }
+                        if (tipEntitate == typeof(Department))
+                        {
+                            return new AdministrareDepartments();
+                        }
                         break;
 
                     case "BIN":

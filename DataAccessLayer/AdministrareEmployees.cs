@@ -69,19 +69,9 @@ namespace NivelAccesDate
             );
         }
 
-        public void DeleteEmployee(int id)
+        public bool DeleteEmployee(int id)
         {
-           /*Employees result = null;
-            var dsEmployees = SqlDBHelper.ExecuteDataSet("select * from Employees_SEM where employee_id = :employee_id", CommandType.Text,
-                new OracleParameter(":emmployee_id", OracleDbType.Int32, id, ParameterDirection.Input));
-
-            if (dsEmployees.Tables[FIRST_TABLE].Rows.Count > 0)
-            {
-                DataRow lineFromDB = dsEmployees.Tables[FIRST_TABLE].Rows[FIRST_LINE];
-                result = new Employees(lineFromDB);
-            }*/
-
-            SqlDBHelper.ExecuteNonQuery(
+            return SqlDBHelper.ExecuteNonQuery(
                 "DELETE from Employees_SEM WHERE employee_id = :employee_id", CommandType.Text, new OracleParameter(":emmployee_id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }

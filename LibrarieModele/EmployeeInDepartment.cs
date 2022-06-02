@@ -11,6 +11,9 @@ namespace LibrarieModele
         public DateTime start_date { get; set; }
         public DateTime stop_date { get; set; }
         public char active { get; set; }
+        //aditional entities
+        public virtual Role role { get; set; }
+        public virtual Department department { get; set; }
 
         public EmployeeInDepartment()
         { }

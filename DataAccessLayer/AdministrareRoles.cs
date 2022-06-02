@@ -51,10 +51,17 @@ namespace NivelAccesDate
         public bool UpdateRole(Role r)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "UPDATE Roles_SEM set title = :title where role-id = :role_id", CommandType.Text,
+                "UPDATE Roles_SEM set title = :title where role_id = :role_id", CommandType.Text,
              new OracleParameter(":title", OracleDbType.NVarchar2, r.title, ParameterDirection.Input),
                 new OracleParameter(":role_id", OracleDbType.Int32, r.role_id, ParameterDirection.Input)
             );
+        }
+
+        public bool DeleteRole(int id)
+        {
+            return SqlDBHelper.ExecuteNonQuery(
+                "DELETE from Roles_SEM WHERE role_id = :role_id", CommandType.Text, new OracleParameter(":role_id", OracleDbType.Int32, id, ParameterDirection.Input)
+                );
         }
     }
 }
