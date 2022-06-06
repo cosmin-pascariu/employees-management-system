@@ -29,9 +29,6 @@ namespace InterfataUtilizator
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,10 +36,6 @@ namespace InterfataUtilizator
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.cbxEmployeeDepartment = new System.Windows.Forms.ComboBox();
-            this.lblEmployeeDepartment = new System.Windows.Forms.Label();
-            this.cbxEmployeeRole = new System.Windows.Forms.ComboBox();
-            this.lblEmployeeRole = new System.Windows.Forms.Label();
             this.txtEmployeeSalary = new System.Windows.Forms.TextBox();
             this.lblEmployeeSalary = new System.Windows.Forms.Label();
             this.lblEmployeeHireDate = new System.Windows.Forms.Label();
@@ -65,14 +58,10 @@ namespace InterfataUtilizator
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.btnShowEmployees = new System.Windows.Forms.Button();
-            this.grbSearchEmployees = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.dgvSearchEmployee = new System.Windows.Forms.DataGridView();
+            this.lblNumberOfEmployee = new System.Windows.Forms.Label();
             this.grbAddAndUpdateEmployee.SuspendLayout();
             this.grbShowEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
-            this.grbSearchEmployees.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // grbAddAndUpdateEmployee
@@ -80,10 +69,6 @@ namespace InterfataUtilizator
             this.grbAddAndUpdateEmployee.Controls.Add(this.btnUpdateEmployee);
             this.grbAddAndUpdateEmployee.Controls.Add(this.btnReset);
             this.grbAddAndUpdateEmployee.Controls.Add(this.lblMessage);
-            this.grbAddAndUpdateEmployee.Controls.Add(this.cbxEmployeeDepartment);
-            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeDepartment);
-            this.grbAddAndUpdateEmployee.Controls.Add(this.cbxEmployeeRole);
-            this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeRole);
             this.grbAddAndUpdateEmployee.Controls.Add(this.txtEmployeeSalary);
             this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeSalary);
             this.grbAddAndUpdateEmployee.Controls.Add(this.lblEmployeeHireDate);
@@ -145,90 +130,20 @@ namespace InterfataUtilizator
             // 
             this.lblMessage.AutoSize = true;
             this.lblMessage.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(7, 416);
+            this.lblMessage.Location = new System.Drawing.Point(9, 451);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(0, 17);
             this.lblMessage.TabIndex = 42;
-            // 
-            // cbxEmployeeDepartment
-            // 
-            this.cbxEmployeeDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cbxEmployeeDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEmployeeDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxEmployeeDepartment.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.cbxEmployeeDepartment.ForeColor = System.Drawing.Color.White;
-            this.cbxEmployeeDepartment.FormattingEnabled = true;
-            this.cbxEmployeeDepartment.Items.AddRange(new object[] {
-            "Produce",
-            "Meat",
-            "Seafood",
-            "Beer and Wine",
-            "Health and Beauty",
-            "Deli/Prepared Foods",
-            "Front End"});
-            this.cbxEmployeeDepartment.Location = new System.Drawing.Point(121, 378);
-            this.cbxEmployeeDepartment.Name = "cbxEmployeeDepartment";
-            this.cbxEmployeeDepartment.Size = new System.Drawing.Size(127, 24);
-            this.cbxEmployeeDepartment.TabIndex = 41;
-            // 
-            // lblEmployeeDepartment
-            // 
-            this.lblEmployeeDepartment.AutoSize = true;
-            this.lblEmployeeDepartment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeDepartment.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeDepartment.Location = new System.Drawing.Point(7, 382);
-            this.lblEmployeeDepartment.Name = "lblEmployeeDepartment";
-            this.lblEmployeeDepartment.Size = new System.Drawing.Size(108, 21);
-            this.lblEmployeeDepartment.TabIndex = 40;
-            this.lblEmployeeDepartment.Text = "Department";
-            // 
-            // cbxEmployeeRole
-            // 
-            this.cbxEmployeeRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cbxEmployeeRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEmployeeRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxEmployeeRole.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.cbxEmployeeRole.ForeColor = System.Drawing.Color.White;
-            this.cbxEmployeeRole.FormattingEnabled = true;
-            this.cbxEmployeeRole.Items.AddRange(new object[] {
-            "Custodian",
-            "Shopping cart attendant",
-            "Cashier",
-            "food preparation workers",
-            "Bagger",
-            "Floral assistant",
-            "Assistant store manager",
-            "Stock clerk",
-            "Butcher",
-            "Inventory control specialist",
-            "Seafood specialist",
-            "Customer service representative",
-            "Store manager"});
-            this.cbxEmployeeRole.Location = new System.Drawing.Point(56, 340);
-            this.cbxEmployeeRole.Name = "cbxEmployeeRole";
-            this.cbxEmployeeRole.Size = new System.Drawing.Size(191, 27);
-            this.cbxEmployeeRole.TabIndex = 39;
-            // 
-            // lblEmployeeRole
-            // 
-            this.lblEmployeeRole.AutoSize = true;
-            this.lblEmployeeRole.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeRole.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeRole.Location = new System.Drawing.Point(7, 344);
-            this.lblEmployeeRole.Name = "lblEmployeeRole";
-            this.lblEmployeeRole.Size = new System.Drawing.Size(43, 21);
-            this.lblEmployeeRole.TabIndex = 38;
-            this.lblEmployeeRole.Text = "Role";
             // 
             // txtEmployeeSalary
             // 
             this.txtEmployeeSalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtEmployeeSalary.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeSalary.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeeSalary.Location = new System.Drawing.Point(129, 305);
+            this.txtEmployeeSalary.Location = new System.Drawing.Point(7, 412);
             this.txtEmployeeSalary.MaxLength = 99999999;
             this.txtEmployeeSalary.Name = "txtEmployeeSalary";
-            this.txtEmployeeSalary.Size = new System.Drawing.Size(120, 27);
+            this.txtEmployeeSalary.Size = new System.Drawing.Size(240, 27);
             this.txtEmployeeSalary.TabIndex = 37;
             // 
             // lblEmployeeSalary
@@ -236,7 +151,7 @@ namespace InterfataUtilizator
             this.lblEmployeeSalary.AutoSize = true;
             this.lblEmployeeSalary.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeSalary.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeSalary.Location = new System.Drawing.Point(6, 305);
+            this.lblEmployeeSalary.Location = new System.Drawing.Point(8, 388);
             this.lblEmployeeSalary.Name = "lblEmployeeSalary";
             this.lblEmployeeSalary.Size = new System.Drawing.Size(56, 21);
             this.lblEmployeeSalary.TabIndex = 36;
@@ -247,7 +162,7 @@ namespace InterfataUtilizator
             this.lblEmployeeHireDate.AutoSize = true;
             this.lblEmployeeHireDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeHireDate.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeHireDate.Location = new System.Drawing.Point(7, 272);
+            this.lblEmployeeHireDate.Location = new System.Drawing.Point(7, 330);
             this.lblEmployeeHireDate.Name = "lblEmployeeHireDate";
             this.lblEmployeeHireDate.Size = new System.Drawing.Size(82, 21);
             this.lblEmployeeHireDate.TabIndex = 35;
@@ -255,11 +170,11 @@ namespace InterfataUtilizator
             // 
             // dtpEmployeeHireDate
             // 
-            this.dtpEmployeeHireDate.Location = new System.Drawing.Point(130, 268);
+            this.dtpEmployeeHireDate.Location = new System.Drawing.Point(7, 354);
             this.dtpEmployeeHireDate.MaxDate = new System.DateTime(2022, 5, 19, 0, 0, 0, 0);
             this.dtpEmployeeHireDate.MinDate = new System.DateTime(1922, 1, 1, 0, 0, 0, 0);
             this.dtpEmployeeHireDate.Name = "dtpEmployeeHireDate";
-            this.dtpEmployeeHireDate.Size = new System.Drawing.Size(117, 31);
+            this.dtpEmployeeHireDate.Size = new System.Drawing.Size(240, 31);
             this.dtpEmployeeHireDate.TabIndex = 34;
             this.dtpEmployeeHireDate.Value = new System.DateTime(2022, 5, 19, 0, 0, 0, 0);
             // 
@@ -268,7 +183,7 @@ namespace InterfataUtilizator
             this.lblEmployeeBirthDate.AutoSize = true;
             this.lblEmployeeBirthDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeBirthDate.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeBirthDate.Location = new System.Drawing.Point(7, 236);
+            this.lblEmployeeBirthDate.Location = new System.Drawing.Point(6, 275);
             this.lblEmployeeBirthDate.Name = "lblEmployeeBirthDate";
             this.lblEmployeeBirthDate.Size = new System.Drawing.Size(87, 21);
             this.lblEmployeeBirthDate.TabIndex = 33;
@@ -276,11 +191,11 @@ namespace InterfataUtilizator
             // 
             // dtpEmployeeBirthDate
             // 
-            this.dtpEmployeeBirthDate.Location = new System.Drawing.Point(130, 232);
+            this.dtpEmployeeBirthDate.Location = new System.Drawing.Point(7, 297);
             this.dtpEmployeeBirthDate.MaxDate = new System.DateTime(2022, 5, 26, 0, 0, 0, 0);
             this.dtpEmployeeBirthDate.MinDate = new System.DateTime(1922, 1, 1, 0, 0, 0, 0);
             this.dtpEmployeeBirthDate.Name = "dtpEmployeeBirthDate";
-            this.dtpEmployeeBirthDate.Size = new System.Drawing.Size(117, 31);
+            this.dtpEmployeeBirthDate.Size = new System.Drawing.Size(240, 31);
             this.dtpEmployeeBirthDate.TabIndex = 32;
             this.dtpEmployeeBirthDate.Value = new System.DateTime(2022, 5, 19, 0, 0, 0, 0);
             // 
@@ -289,10 +204,10 @@ namespace InterfataUtilizator
             this.txtEmployeePhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtEmployeePhoneNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeePhoneNumber.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeePhoneNumber.Location = new System.Drawing.Point(129, 201);
+            this.txtEmployeePhoneNumber.Location = new System.Drawing.Point(11, 245);
             this.txtEmployeePhoneNumber.MaxLength = 10;
             this.txtEmployeePhoneNumber.Name = "txtEmployeePhoneNumber";
-            this.txtEmployeePhoneNumber.Size = new System.Drawing.Size(120, 27);
+            this.txtEmployeePhoneNumber.Size = new System.Drawing.Size(236, 27);
             this.txtEmployeePhoneNumber.TabIndex = 31;
             // 
             // lblEmployeePhoneNumber
@@ -300,7 +215,7 @@ namespace InterfataUtilizator
             this.lblEmployeePhoneNumber.AutoSize = true;
             this.lblEmployeePhoneNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeePhoneNumber.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeePhoneNumber.Location = new System.Drawing.Point(7, 201);
+            this.lblEmployeePhoneNumber.Location = new System.Drawing.Point(8, 224);
             this.lblEmployeePhoneNumber.Name = "lblEmployeePhoneNumber";
             this.lblEmployeePhoneNumber.Size = new System.Drawing.Size(124, 21);
             this.lblEmployeePhoneNumber.TabIndex = 30;
@@ -311,10 +226,10 @@ namespace InterfataUtilizator
             this.txtEmployeeEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtEmployeeEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeEmail.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeeEmail.Location = new System.Drawing.Point(129, 166);
+            this.txtEmployeeEmail.Location = new System.Drawing.Point(12, 196);
             this.txtEmployeeEmail.MaxLength = 50;
             this.txtEmployeeEmail.Name = "txtEmployeeEmail";
-            this.txtEmployeeEmail.Size = new System.Drawing.Size(120, 27);
+            this.txtEmployeeEmail.Size = new System.Drawing.Size(235, 27);
             this.txtEmployeeEmail.TabIndex = 29;
             // 
             // lblEmployeeEmail
@@ -322,7 +237,7 @@ namespace InterfataUtilizator
             this.lblEmployeeEmail.AutoSize = true;
             this.lblEmployeeEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeEmail.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeEmail.Location = new System.Drawing.Point(7, 166);
+            this.lblEmployeeEmail.Location = new System.Drawing.Point(7, 176);
             this.lblEmployeeEmail.Name = "lblEmployeeEmail";
             this.lblEmployeeEmail.Size = new System.Drawing.Size(51, 21);
             this.lblEmployeeEmail.TabIndex = 28;
@@ -357,7 +272,7 @@ namespace InterfataUtilizator
             this.lblEmployeeLastName.AutoSize = true;
             this.lblEmployeeLastName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeLastName.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeLastName.Location = new System.Drawing.Point(8, 95);
+            this.lblEmployeeLastName.Location = new System.Drawing.Point(8, 74);
             this.lblEmployeeLastName.Name = "lblEmployeeLastName";
             this.lblEmployeeLastName.Size = new System.Drawing.Size(91, 21);
             this.lblEmployeeLastName.TabIndex = 9;
@@ -368,10 +283,10 @@ namespace InterfataUtilizator
             this.txtEmployeeCNP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtEmployeeCNP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeCNP.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeeCNP.Location = new System.Drawing.Point(130, 131);
+            this.txtEmployeeCNP.Location = new System.Drawing.Point(12, 146);
             this.txtEmployeeCNP.MaxLength = 13;
             this.txtEmployeeCNP.Name = "txtEmployeeCNP";
-            this.txtEmployeeCNP.Size = new System.Drawing.Size(120, 27);
+            this.txtEmployeeCNP.Size = new System.Drawing.Size(235, 27);
             this.txtEmployeeCNP.TabIndex = 15;
             // 
             // lblEmployeeFirstName
@@ -379,7 +294,7 @@ namespace InterfataUtilizator
             this.lblEmployeeFirstName.AutoSize = true;
             this.lblEmployeeFirstName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeFirstName.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeFirstName.Location = new System.Drawing.Point(8, 64);
+            this.lblEmployeeFirstName.Location = new System.Drawing.Point(8, 20);
             this.lblEmployeeFirstName.Name = "lblEmployeeFirstName";
             this.lblEmployeeFirstName.Size = new System.Drawing.Size(89, 21);
             this.lblEmployeeFirstName.TabIndex = 10;
@@ -390,10 +305,10 @@ namespace InterfataUtilizator
             this.txtEmployeeFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtEmployeeFirstName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeFirstName.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeeFirstName.Location = new System.Drawing.Point(130, 61);
+            this.txtEmployeeFirstName.Location = new System.Drawing.Point(12, 41);
             this.txtEmployeeFirstName.MaxLength = 30;
             this.txtEmployeeFirstName.Name = "txtEmployeeFirstName";
-            this.txtEmployeeFirstName.Size = new System.Drawing.Size(120, 27);
+            this.txtEmployeeFirstName.Size = new System.Drawing.Size(235, 27);
             this.txtEmployeeFirstName.TabIndex = 11;
             // 
             // lblEmployeeCNP
@@ -401,7 +316,7 @@ namespace InterfataUtilizator
             this.lblEmployeeCNP.AutoSize = true;
             this.lblEmployeeCNP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeCNP.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeCNP.Location = new System.Drawing.Point(8, 131);
+            this.lblEmployeeCNP.Location = new System.Drawing.Point(8, 126);
             this.lblEmployeeCNP.Name = "lblEmployeeCNP";
             this.lblEmployeeCNP.Size = new System.Drawing.Size(44, 21);
             this.lblEmployeeCNP.TabIndex = 13;
@@ -412,10 +327,10 @@ namespace InterfataUtilizator
             this.txtEmployeeLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtEmployeeLastName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmployeeLastName.ForeColor = System.Drawing.Color.White;
-            this.txtEmployeeLastName.Location = new System.Drawing.Point(130, 96);
+            this.txtEmployeeLastName.Location = new System.Drawing.Point(12, 94);
             this.txtEmployeeLastName.MaxLength = 30;
             this.txtEmployeeLastName.Name = "txtEmployeeLastName";
-            this.txtEmployeeLastName.Size = new System.Drawing.Size(120, 27);
+            this.txtEmployeeLastName.Size = new System.Drawing.Size(235, 27);
             this.txtEmployeeLastName.TabIndex = 12;
             // 
             // grbShowEmployees
@@ -425,9 +340,9 @@ namespace InterfataUtilizator
             this.grbShowEmployees.Controls.Add(this.btnShowEmployees);
             this.grbShowEmployees.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbShowEmployees.ForeColor = System.Drawing.Color.White;
-            this.grbShowEmployees.Location = new System.Drawing.Point(282, 204);
+            this.grbShowEmployees.Location = new System.Drawing.Point(282, 56);
             this.grbShowEmployees.Name = "grbShowEmployees";
-            this.grbShowEmployees.Size = new System.Drawing.Size(842, 322);
+            this.grbShowEmployees.Size = new System.Drawing.Size(842, 470);
             this.grbShowEmployees.TabIndex = 25;
             this.grbShowEmployees.TabStop = false;
             this.grbShowEmployees.Text = "Show Employees";
@@ -438,7 +353,7 @@ namespace InterfataUtilizator
             this.btnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteEmployee.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(6, 283);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(6, 432);
             this.btnDeleteEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
             this.btnDeleteEmployee.Size = new System.Drawing.Size(86, 32);
@@ -451,34 +366,34 @@ namespace InterfataUtilizator
             // 
             this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployees.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmployees.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmployees.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEmployees.Location = new System.Drawing.Point(6, 23);
             this.dgvEmployees.Name = "dgvEmployees";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployees.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEmployees.Size = new System.Drawing.Size(828, 253);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployees.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvEmployees.Size = new System.Drawing.Size(828, 380);
             this.dgvEmployees.TabIndex = 6;
             this.dgvEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellContentClick);
             // 
@@ -488,7 +403,7 @@ namespace InterfataUtilizator
             this.btnShowEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowEmployees.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowEmployees.ForeColor = System.Drawing.Color.White;
-            this.btnShowEmployees.Location = new System.Drawing.Point(748, 284);
+            this.btnShowEmployees.Location = new System.Drawing.Point(748, 432);
             this.btnShowEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowEmployees.Name = "btnShowEmployees";
             this.btnShowEmployees.Size = new System.Drawing.Size(86, 32);
@@ -497,73 +412,23 @@ namespace InterfataUtilizator
             this.btnShowEmployees.UseVisualStyleBackColor = false;
             this.btnShowEmployees.Click += new System.EventHandler(this.btnShowEmployees_Click);
             // 
-            // grbSearchEmployees
+            // lblNumberOfEmployee
             // 
-            this.grbSearchEmployees.Controls.Add(this.dgvSearchEmployee);
-            this.grbSearchEmployees.Controls.Add(this.btnSearch);
-            this.grbSearchEmployees.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbSearchEmployees.ForeColor = System.Drawing.Color.White;
-            this.grbSearchEmployees.Location = new System.Drawing.Point(282, 3);
-            this.grbSearchEmployees.Name = "grbSearchEmployees";
-            this.grbSearchEmployees.Size = new System.Drawing.Size(842, 202);
-            this.grbSearchEmployees.TabIndex = 26;
-            this.grbSearchEmployees.TabStop = false;
-            this.grbSearchEmployees.Text = "Search employee";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(748, 25);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(86, 32);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // dgvSearchEmployee
-            // 
-            this.dgvSearchEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSearchEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSearchEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvSearchEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSearchEmployee.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvSearchEmployee.Location = new System.Drawing.Point(6, 64);
-            this.dgvSearchEmployee.Name = "dgvSearchEmployee";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSearchEmployee.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvSearchEmployee.Size = new System.Drawing.Size(828, 123);
-            this.dgvSearchEmployee.TabIndex = 7;
+            this.lblNumberOfEmployee.AutoSize = true;
+            this.lblNumberOfEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.lblNumberOfEmployee.ForeColor = System.Drawing.Color.White;
+            this.lblNumberOfEmployee.Location = new System.Drawing.Point(285, 16);
+            this.lblNumberOfEmployee.Name = "lblNumberOfEmployee";
+            this.lblNumberOfEmployee.Size = new System.Drawing.Size(70, 26);
+            this.lblNumberOfEmployee.TabIndex = 26;
+            this.lblNumberOfEmployee.Text = "label1";
             // 
             // employeesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.Controls.Add(this.grbSearchEmployees);
+            this.Controls.Add(this.lblNumberOfEmployee);
             this.Controls.Add(this.grbShowEmployees);
             this.Controls.Add(this.grbAddAndUpdateEmployee);
             this.Name = "employeesForm";
@@ -572,9 +437,8 @@ namespace InterfataUtilizator
             this.grbAddAndUpdateEmployee.PerformLayout();
             this.grbShowEmployees.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
-            this.grbSearchEmployees.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchEmployee)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -599,19 +463,13 @@ namespace InterfataUtilizator
         private System.Windows.Forms.Label lblEmployeePhoneNumber;
         private System.Windows.Forms.TextBox txtEmployeeEmail;
         private System.Windows.Forms.Label lblEmployeeEmail;
-        private System.Windows.Forms.ComboBox cbxEmployeeDepartment;
-        private System.Windows.Forms.Label lblEmployeeDepartment;
-        private System.Windows.Forms.ComboBox cbxEmployeeRole;
-        private System.Windows.Forms.Label lblEmployeeRole;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.GroupBox grbShowEmployees;
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Button btnShowEmployees;
-        private System.Windows.Forms.GroupBox grbSearchEmployees;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnUpdateEmployee;
-        private System.Windows.Forms.DataGridView dgvSearchEmployee;
+        private System.Windows.Forms.Label lblNumberOfEmployee;
     }
 }

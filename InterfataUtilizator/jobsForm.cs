@@ -20,8 +20,14 @@ namespace InterfataUtilizator
         {
             InitializeComponent();
             CheckStorage();
+            ShowRolesNumber();
         }
 
+        void ShowRolesNumber()
+        {
+            lblNumberOfRoles.Text = "Number of roles: " + stocareRoles.GetRolesNumber();
+            
+        }
         public void CheckStorage()
         {
             if (stocareRoles == null)
@@ -43,13 +49,14 @@ namespace InterfataUtilizator
                 if (rezultat == SUCCES)
                 {
                     txtRoleTitle.Text = null;
-                    lblMessage.ForeColor = Color.Green;
-                    lblMessage.Text = "Role added!";
+                    ShowRolesNumber();
+                    lblMessageRole.ForeColor = Color.Green;
+                    lblMessageRole.Text = "Role added!";
                 }
                 else
                 {
-                    lblMessage.ForeColor = Color.Red;
-                    lblMessage.Text = "Error at adding role";
+                    lblMessageRole.ForeColor = Color.Red;
+                    lblMessageRole.Text = "Error at adding role";
                 }
             }
             catch (Exception ex)
@@ -84,6 +91,8 @@ namespace InterfataUtilizator
             try
             {
                 stocareRoles.DeleteRole(int.Parse(roleID));
+                txtRoleTitle.Text = null;
+                ShowRolesNumber();
                 btnShowRoles_Click(sender, e);
             }
             catch (Exception ex)
@@ -113,13 +122,13 @@ namespace InterfataUtilizator
                 {
                     txtRoleTitle.Text = null;
                     btnShowRoles_Click(sender, e);
-                    lblMessage.ForeColor = Color.Green;
-                    lblMessage.Text = "Updated role!";
+                    lblMessageRole.ForeColor = Color.Green;
+                    lblMessageRole.Text = "Updated role!";
                 }
                 else
                 {
-                    lblMessage.ForeColor = Color.Red;
-                    lblMessage.Text = "Role update error!";
+                    lblMessageRole.ForeColor = Color.Red;
+                    lblMessageRole.Text = "Role update error!";
                 }
             }
             catch (Exception ex)

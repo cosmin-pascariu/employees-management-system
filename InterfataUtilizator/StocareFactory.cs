@@ -41,8 +41,11 @@ namespace InterfataUtilizator
                         {
                             return new AdministrareDepartments();
                         }
+                        if(tipEntitate == typeof(EmployeeInDepartment))
+                        {
+                            return new AdministrareEmployeesInDepartments();
+                        }
                         break;
-
                     case "BIN":
                         //instantiere clase care realizeaza salvarea in fisier binar
                         break;

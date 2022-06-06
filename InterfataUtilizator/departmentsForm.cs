@@ -21,6 +21,12 @@ namespace InterfataUtilizator
         {
             InitializeComponent();
             CheckStorage();
+            ShowDepartmentsNumber();
+        }
+
+        void ShowDepartmentsNumber()
+        {
+            lblNumberOfDepartments.Text = "Number of departments: " + stocareDepartments.GetDepartmentsNumber();
         }
 
         public void CheckStorage()
@@ -45,15 +51,16 @@ namespace InterfataUtilizator
                     var rezultat = stocareDepartments.AddDepartment(department);
                     if (rezultat == SUCCES)
                     {
+                    ShowDepartmentsNumber();
                         txtDepartmentTitle.Text = null;
                     txtManagerId.Text = null;
-                        lblMessage.ForeColor = Color.Green;
-                        lblMessage.Text = "Role added!";
+                        lblMessageDepartment.ForeColor = Color.Green;
+                        lblMessageDepartment.Text = "Role added!";
                     }
                     else
                     {
-                        lblMessage.ForeColor = Color.Red;
-                        lblMessage.Text = "Error at adding role";
+                        lblMessageDepartment.ForeColor = Color.Red;
+                        lblMessageDepartment.Text = "Error at adding role";
                     }
                 }
                 catch (Exception ex)
@@ -68,6 +75,7 @@ namespace InterfataUtilizator
 
             try
             {
+                lblMessageDepartment.Text = null;
                 var departments = stocareDepartments.GetDepartments();
                 if (departments != null && departments.Any())
                 {
@@ -90,8 +98,10 @@ namespace InterfataUtilizator
             string departmentID = dgvDepartments[FIRST_COLUMN, currentRowIndex].Value.ToString();
             try
             {
+                
                 stocareDepartments.DeleteDepartment(int.Parse(departmentID));
                 btnShowDepartments_Click(sender, e);
+                ShowDepartmentsNumber();
             }
             catch (Exception ex)
             {
@@ -121,13 +131,13 @@ namespace InterfataUtilizator
                     txtDepartmentTitle.Text = null;
                     txtManagerId.Text = null;
                     btnShowDepartments_Click(sender, e);
-                    lblMessage.ForeColor = Color.Green;
-                    lblMessage.Text = "Updated department!";
+                    lblMessageDepartment.ForeColor = Color.Green;
+                    lblMessageDepartment.Text = "Updated department!";
                 }
                 else
                 {
-                    lblMessage.ForeColor = Color.Red;
-                    lblMessage.Text = "Department update error!";
+                    lblMessageDepartment.ForeColor = Color.Red;
+                    lblMessageDepartment.Text = "Department update error!";
                 }
             }
             catch (Exception ex)

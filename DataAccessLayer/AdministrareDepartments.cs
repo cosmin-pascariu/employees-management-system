@@ -62,5 +62,12 @@ namespace NivelAccesDate
                 "DELETE from Departments_SEM WHERE department_id = :department_id", CommandType.Text, new OracleParameter(":department_id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }
+
+        public int GetDepartmentsNumber()
+        {
+            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(department_id) AS department_no FROM departments_SEM", CommandType.Text);
+            DataRow linieBD = dsResult.Tables[FIRST_TABLE].Rows[FIRST_LINE];
+            return int.Parse(linieBD["department_no"].ToString());
+        }
     }
 }

@@ -63,5 +63,12 @@ namespace NivelAccesDate
                 "DELETE from Roles_SEM WHERE role_id = :role_id", CommandType.Text, new OracleParameter(":role_id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }
+
+        public int GetRolesNumber()
+        {
+            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(role_id) AS role_no FROM roles_SEM", CommandType.Text);
+            DataRow linieBD = dsResult.Tables[FIRST_TABLE].Rows[FIRST_LINE];
+            return int.Parse(linieBD["role_no"].ToString());
+        }
     }
 }

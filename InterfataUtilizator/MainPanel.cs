@@ -104,6 +104,7 @@ namespace InterfataUtilizator
             btnEmployees.Enabled = true;
             btnJobs.Enabled = true;
             btnDepartments.Enabled = true;
+            btnStatictis.Enabled = true;
         }
 
         private void btnEmployees_Click(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace InterfataUtilizator
             btnEmployees.Enabled = false;
             btnJobs.Enabled = true;
             btnDepartments.Enabled = true;
-
+            btnStatictis.Enabled = true;
         }
 
         private void btnJobs_Click(object sender, EventArgs e)
@@ -135,6 +136,7 @@ namespace InterfataUtilizator
             btnEmployees.Enabled = true;
             btnJobs.Enabled = false;
             btnDepartments.Enabled = true;
+            btnStatictis.Enabled = true;
         }
 
         private void btnDepartments_Click(object sender, EventArgs e)
@@ -149,7 +151,24 @@ namespace InterfataUtilizator
             btnHome.Enabled = true;
             btnEmployees.Enabled = true;
             btnJobs.Enabled = true;
-            btnDepartments.Enabled = false; ;
+            btnDepartments.Enabled = false;
+            btnStatictis.Enabled = true;
+        }
+
+        private void btnStatictis_Click(object sender, EventArgs e)
+        {
+            if (!MainPanel.Instance.PnlContainer.Controls.ContainsKey("employeeInDepartmentForm"))
+            {
+                employeeInDepartmentForm eidf = new employeeInDepartmentForm();
+                eidf.Dock = DockStyle.Fill;
+                MainPanel.Instance.PnlContainer.Controls.Add(eidf);
+            }
+            PnlContainer.Controls["employeeInDepartmentForm"].BringToFront();
+            btnHome.Enabled = true;
+            btnEmployees.Enabled = true;
+            btnJobs.Enabled = true;
+            btnDepartments.Enabled = true;
+            btnStatictis.Enabled = false;
         }
     }
 }

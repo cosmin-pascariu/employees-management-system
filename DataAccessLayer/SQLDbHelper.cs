@@ -52,6 +52,7 @@ namespace NivelAccesDate
                     catch (OracleException ex)
                     {
                         //salveaza exceptii in fisiere log
+                        Console.WriteLine(ex.Message);
                     }
                     return ds;
                 }
@@ -91,8 +92,8 @@ namespace NivelAccesDate
                     }
                     catch (OracleException ex)
                     {
+                        Console.WriteLine(ex.Message);
                         transaction.Rollback();
-
                         //salveaza exceptii in fisiere log
                     }
                 }

@@ -14,5 +14,6 @@ namespace NivelAccesDate
         bool AddRole(Role r);
         bool UpdateRole(Role r);
         bool DeleteRole(int id);
+        int GetRolesNumber();
     }
 }

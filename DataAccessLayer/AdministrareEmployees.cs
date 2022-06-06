@@ -75,5 +75,12 @@ namespace NivelAccesDate
                 "DELETE from Employees_SEM WHERE employee_id = :employee_id", CommandType.Text, new OracleParameter(":emmployee_id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }
+
+        public int GetEmployeesNumber()
+        {
+            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(employee_id) AS employees_no FROM employees_SEM", CommandType.Text);
+            DataRow linieBD = dsResult.Tables[FIRST_TABLE].Rows[FIRST_LINE];
+            return int.Parse(linieBD["employees_no"].ToString());
+        }
     }
 }

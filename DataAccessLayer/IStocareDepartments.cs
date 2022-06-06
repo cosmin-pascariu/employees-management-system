@@ -14,5 +14,6 @@ namespace NivelAccesDate
         bool AddDepartment(Department d);
         bool UpdateDepartment(Department d);
         bool DeleteDepartment(int id);
+        int GetDepartmentsNumber();
     }
 }

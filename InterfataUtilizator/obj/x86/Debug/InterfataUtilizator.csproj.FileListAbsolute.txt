@@ -39,3 +39,4 @@ D:\employees-management-system\InterfataUtilizator\obj\x86\Debug\InterfataUtiliz
 D:\employees-management-system\InterfataUtilizator\obj\x86\Debug\InterfataUtilizator.employeesForm.resources
 D:\employees-management-system\InterfataUtilizator\obj\x86\Debug\InterfataUtilizator.jobsForm.resources
 D:\employees-management-system\InterfataUtilizator\obj\x86\Debug\InterfataUtilizator.departmentsForm.resources
+D:\employees-management-system\InterfataUtilizator\obj\x86\Debug\InterfataUtilizator.employeeInDepartmentForm.resources

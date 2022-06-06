@@ -21,8 +21,13 @@ namespace InterfataUtilizator
             InitializeComponent();
             SetMyCustomFormat();
             CheckStorage();
+            ShowNumberOfEmployees();
         } 
 
+        void ShowNumberOfEmployees()
+        {
+            lblNumberOfEmployee.Text = "Number of employees: " + stocareEmployees.GetEmployeesNumber();
+        }
         public void CheckStorage()
         {
             if (stocareEmployees == null)
@@ -68,6 +73,7 @@ namespace InterfataUtilizator
                 if (rezultat == SUCCES)
                 {
                     resetControls();
+                    ShowNumberOfEmployees();
                     btnShowEmployees_Click(sender, e);
                     lblMessage.ForeColor = Color.Green;
                     lblMessage.Text = "Employee added!";
@@ -115,6 +121,7 @@ namespace InterfataUtilizator
             try
             {
                 stocareEmployees.DeleteEmployee(int.Parse(employeeID));
+                ShowNumberOfEmployees();
                 btnShowEmployees_Click(sender, e);
             }
             catch(Exception ex)
@@ -201,8 +208,6 @@ namespace InterfataUtilizator
             dtpEmployeeBirthDate.Value = DateTime.Today.AddYears(-16);
             dtpEmployeeHireDate.Value = DateTime.Today;
             txtEmployeeSalary.Text = null;
-            cbxEmployeeRole.SelectedIndex = -1;
-            cbxEmployeeDepartment.SelectedIndex = -1;
             lblMessage.Text = null;
         }
     }

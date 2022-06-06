@@ -42,6 +42,7 @@ namespace InterfataUtilizator
             this.btnEmployees = new System.Windows.Forms.Button();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnStatictis = new System.Windows.Forms.Button();
             this.pnlJos = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -211,6 +212,24 @@ namespace InterfataUtilizator
             this.pctLogo.TabIndex = 6;
             this.pctLogo.TabStop = false;
             // 
+            // btnStatictis
+            // 
+            this.btnStatictis.BackColor = System.Drawing.Color.Transparent;
+            this.btnStatictis.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStatictis.BackgroundImage")));
+            this.btnStatictis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStatictis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatictis.FlatAppearance.BorderSize = 0;
+            this.btnStatictis.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnStatictis.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnStatictis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatictis.Location = new System.Drawing.Point(1, 420);
+            this.btnStatictis.Name = "btnStatictis";
+            this.btnStatictis.Size = new System.Drawing.Size(65, 65);
+            this.btnStatictis.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnStatictis, "EmployeeInDepartment");
+            this.btnStatictis.UseVisualStyleBackColor = false;
+            this.btnStatictis.Click += new System.EventHandler(this.btnStatictis_Click);
+            // 
             // pnlJos
             // 
             this.pnlJos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
@@ -261,6 +280,7 @@ namespace InterfataUtilizator
             // pnlMeniu
             // 
             this.pnlMeniu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.pnlMeniu.Controls.Add(this.btnStatictis);
             this.pnlMeniu.Controls.Add(this.btnHome);
             this.pnlMeniu.Controls.Add(this.btnJobs);
             this.pnlMeniu.Controls.Add(this.btnDepartments);
@@ -337,5 +357,6 @@ namespace InterfataUtilizator
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnStatictis;
     }
 }

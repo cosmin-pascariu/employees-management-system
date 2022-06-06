@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D7731E6D-344E-4B30-9AE3-AB37FE499A01}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DotNetOracle</RootNamespace>
     <AssemblyName>DotNetOracle</AssemblyName>
@@ -65,6 +65,12 @@
     <Compile Include="departmentsForm.Designer.cs">
       <DependentUpon>departmentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="employeeInDepartmentForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="employeeInDepartmentForm.Designer.cs">
+      <DependentUpon>employeeInDepartmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="employeesForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="departmentsForm.resx">
       <DependentUpon>departmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employeeInDepartmentForm.resx">
+      <DependentUpon>employeeInDepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="employeesForm.resx">
       <DependentUpon>employeesForm.cs</DependentUpon>

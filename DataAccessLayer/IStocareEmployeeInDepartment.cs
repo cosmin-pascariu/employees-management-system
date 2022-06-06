@@ -12,5 +12,6 @@ namespace NivelAccesDate
         bool AddEmployeeInDepartment(EmployeeInDepartment ed);
 
         bool UpdateEmployeeInDepartment(EmployeeInDepartment ed);
+        bool DeleteEmployeeInDepartment(int id);
     }
 }
