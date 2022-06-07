@@ -35,7 +35,6 @@ namespace InterfataUtilizator
             this.button1 = new System.Windows.Forms.Button();
             this.pctExit = new System.Windows.Forms.PictureBox();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnJobs = new System.Windows.Forms.Button();
             this.btnDepartments = new System.Windows.Forms.Button();
@@ -53,7 +52,6 @@ namespace InterfataUtilizator
             this.panelContainer = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).BeginInit();
             this.pnlTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlJos.SuspendLayout();
             this.pnlMeniu.SuspendLayout();
@@ -105,7 +103,6 @@ namespace InterfataUtilizator
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Controls.Add(this.btnGit);
             this.pnlTop.Controls.Add(this.button1);
             this.pnlTop.Controls.Add(this.pctExit);
@@ -117,16 +114,6 @@ namespace InterfataUtilizator
             this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             this.pnlTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseMove);
             this.pnlTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseUp);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 55);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // btnHome
             // 
@@ -246,7 +233,7 @@ namespace InterfataUtilizator
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(69, 3);
+            this.lblTime.Location = new System.Drawing.Point(8, 4);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(35, 13);
             this.lblTime.TabIndex = 2;
@@ -327,7 +314,6 @@ namespace InterfataUtilizator
             this.Load += new System.EventHandler(this.MainPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).EndInit();
             this.pnlTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlJos.ResumeLayout(false);
             this.pnlJos.PerformLayout();
@@ -356,7 +342,6 @@ namespace InterfataUtilizator
         private System.Windows.Forms.Panel pnlMeniu;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnStatictis;
     }
 }

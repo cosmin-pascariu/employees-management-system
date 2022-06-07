@@ -14,7 +14,7 @@ namespace NivelAccesDate
         public List<Department> GetDepartments()
         {
             var result = new List<Department>();
-            var dsDepartments = SqlDBHelper.ExecuteDataSet("select * from Departments_SEM WHERE isDeleted = 'N'", CommandType.Text);
+            var dsDepartments = SqlDBHelper.ExecuteDataSet("select * from Departments_SEM d, Employees_SEM e WHERE d.manager_id=e.employee_id AND e.isDeleted = 'N'", CommandType.Text);
 
             foreach (DataRow lineFromDB in dsDepartments.Tables[FIRST_TABLE].Rows)
             {
@@ -70,7 +70,7 @@ namespace NivelAccesDate
 
         public int GetDepartmentsNumber()
         {
-            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(department_id) AS department_no FROM departments_SEM", CommandType.Text);
+            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(department_id) AS department_no FROM departments_SEM d,Employees_SEM e WHERE d.manager_id=e.employee_id AND e.isDeleted = 'N'", CommandType.Text);
             DataRow linieBD = dsResult.Tables[FIRST_TABLE].Rows[FIRST_LINE];
             return int.Parse(linieBD["department_no"].ToString());
         }

@@ -27,6 +27,8 @@ namespace InterfataUtilizator
             InitializeEmployeeComboBox();
             InitializeDepartmentComboBox();
             InitializeRoleComboBox();
+            btnUpdateEmployee.Enabled = false;
+            btnDeleteEmployee.Enabled = false;
         }
 
         public void CheckStorage()
@@ -122,32 +124,35 @@ namespace InterfataUtilizator
         #endregion
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            try
+            if (dataValidation())
             {
-                var employeeInDepartment = new EmployeeInDepartment(
-                    Convert.ToDateTime(dtpEmployeeStartDate.Text),
-                    Convert.ToDateTime(dtpEmployeeStopDate.Text),
-                    rdbY.Checked == true ? 'Y' : 'N',
-                    ((ComboItem)cmbEmployee.SelectedItem).Value,
-                    ((ComboItem)cmbDepartment.SelectedItem).Value,
-                    ((ComboItem)cmbRole.SelectedItem).Value
-                 );       
+                try
+                {
+                    var employeeInDepartment = new EmployeeInDepartment(
+                        Convert.ToDateTime(dtpEmployeeStartDate.Text),
+                        Convert.ToDateTime(dtpEmployeeStopDate.Text),
+                        rdbY.Checked == true ? 'Y' : 'N',
+                        ((ComboItem)cmbEmployee.SelectedItem).Value,
+                        ((ComboItem)cmbDepartment.SelectedItem).Value,
+                        ((ComboItem)cmbRole.SelectedItem).Value
+                     );
 
-                var rezultat = stocareEmployeesInDepartments.AddEmployeeInDepartment(employeeInDepartment);
-                if (rezultat == SUCCES)
-                {
-                    lblMessage.ForeColor = Color.Green;
-                    lblMessage.Text = "Employee added!";
+                    var rezultat = stocareEmployeesInDepartments.AddEmployeeInDepartment(employeeInDepartment);
+                    if (rezultat == SUCCES)
+                    {
+                        lblMessage.ForeColor = Color.Green;
+                        lblMessage.Text = "Employee added!";
+                    }
+                    else
+                    {
+                        lblMessage.ForeColor = Color.Red;
+                        lblMessage.Text = "Error at adding employee";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    lblMessage.ForeColor = Color.Red;
-                    lblMessage.Text = "Error at adding employee";
+                    MessageBox.Show("Excception" + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Excception" + ex.Message);
             }
         }
 
@@ -155,6 +160,10 @@ namespace InterfataUtilizator
         {
             try
             {
+                btnDeleteEmployee.Enabled = false;
+                btnUpdateEmployee.Enabled = false;
+                lblMessage.Text = null;
+                ResetControls();
                 var employees = stocareEmployeesInDepartments.GetEmployeesInDepartments();
                 if (employees != null && employees.Any())
                 {
@@ -229,6 +238,11 @@ namespace InterfataUtilizator
 
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(dgvEmployees.CurrentCell.RowIndex > -1)
+            {
+                btnUpdateEmployee.Enabled = true;
+                btnDeleteEmployee.Enabled = true;
+            }
             int currentRowIndex = dgvEmployees.CurrentCell.RowIndex;
             string employeeID = dgvEmployees[FIRST_COLUMN, currentRowIndex].Value.ToString();
 
@@ -253,6 +267,44 @@ namespace InterfataUtilizator
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private bool dataValidation()
+        {
+            lblMessage.ForeColor = Color.Red;
+            if (cmbEmployee.SelectedIndex == -1)
+            {
+                lblMessage.Text = "Select one employee!";
+                return false;
+            }
+            lblMessage.ForeColor = Color.Red;
+            if (cmbDepartment.SelectedIndex == -1)
+            {
+                lblMessage.Text = "Select one department!";
+                return false;
+            }
+            lblMessage.ForeColor = Color.Red;
+            if (cmbRole.SelectedIndex == -1)
+            {
+                lblMessage.Text = "Select on role!";
+                return false;
+            }
+            if (rdbY.Checked == false && rdbN.Checked == false)
+            {
+                lblMessage.Text = "Set employee status!";
+                return false;
+            }
+            lblMessage.ForeColor = Color.Green;
+            return true;
+        }
+
+        private void ResetControls()
+        {
+            cmbEmployee.SelectedIndex = -1;
+            cmbDepartment.SelectedIndex = -1;
+            cmbRole.SelectedIndex = -1;
+            rdbN.Checked = false;
+            rdbY.Checked = false;
         }
     }
 }

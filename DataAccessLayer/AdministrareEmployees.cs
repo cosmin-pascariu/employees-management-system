@@ -79,7 +79,7 @@ namespace NivelAccesDate
 
         public int GetEmployeesNumber()
         {
-            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(employee_id) AS employees_no FROM employees_SEM", CommandType.Text);
+            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(employee_id) AS employees_no FROM employees_SEM WHERE isDeleted = 'N'", CommandType.Text);
             DataRow linieBD = dsResult.Tables[FIRST_TABLE].Rows[FIRST_LINE];
             return int.Parse(linieBD["employees_no"].ToString());
         }

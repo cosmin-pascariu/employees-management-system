@@ -22,6 +22,8 @@ namespace InterfataUtilizator
             InitializeComponent();
             CheckStorage();
             ShowRolesNumber();
+            btnUpdateRole.Enabled = false;
+            btnDeleteRole.Enabled = false;
         }
 
         void ShowRolesNumber()
@@ -72,6 +74,10 @@ namespace InterfataUtilizator
         {
             try
             {
+                btnUpdateRole.Enabled = false;
+                btnDeleteRole.Enabled = false;
+                lblMessageRole.Text = null;
+                txtRoleTitle.Text = null;
                 var roles = stocareRoles.GetRoles();
                 if (roles != null && roles.Any())
                 {
@@ -115,8 +121,6 @@ namespace InterfataUtilizator
                 {
                     Role role = stocareRoles.GetRole(Int32.Parse(roleID));
 
-
-                    //incarcarea datelor in controalele de pe forma
                     if (role != null)
                     {
                         role.title = txtRoleTitle.Text;
@@ -147,6 +151,12 @@ namespace InterfataUtilizator
         {
             int currentRowIndex = dgvRoles.CurrentCell.RowIndex;
             string roleID = dgvRoles[FIRST_COLUMN, currentRowIndex].Value.ToString();
+
+            if(dgvRoles.SelectedRows.Count > -1)
+            {
+                btnUpdateRole.Enabled = true;
+                btnDeleteRole.Enabled = true;
+            }
 
             try
             {

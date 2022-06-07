@@ -23,6 +23,8 @@ namespace InterfataUtilizator
             SetMyCustomFormat();
             CheckStorage();
             ShowNumberOfEmployees();
+            btnUpdateEmployee.Enabled = false;
+            btnDeleteEmployee.Enabled = false;
         } 
 
         void ShowNumberOfEmployees()
@@ -77,7 +79,6 @@ namespace InterfataUtilizator
                     {
                         resetControls();
                         ShowNumberOfEmployees();
-                        btnShowEmployees_Click(sender, e);
                         lblMessage.ForeColor = Color.Green;
                         lblMessage.Text = "Employee added!";
                     }
@@ -98,6 +99,10 @@ namespace InterfataUtilizator
         {
             try
             {
+                btnUpdateEmployee.Enabled = false;
+                btnDeleteEmployee.Enabled = false;
+                lblMessage.Text = null;
+                resetControls();
                 var employees = stocareEmployees.GetEmployees();
                 if (employees != null && employees.Any())
                 {
@@ -136,6 +141,12 @@ namespace InterfataUtilizator
 
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvEmployees.SelectedRows.Count > -1)
+            {
+                btnUpdateEmployee.Enabled = true;
+                btnDeleteEmployee.Enabled = true;
+            }
+           
             int currentRowIndex = dgvEmployees.CurrentCell.RowIndex;
             string employeeID = dgvEmployees[FIRST_COLUMN, currentRowIndex].Value.ToString();
 
@@ -191,6 +202,7 @@ namespace InterfataUtilizator
                         btnShowEmployees_Click(sender, e);
                         lblMessage.ForeColor = Color.Green;
                         lblMessage.Text = "Updated employee!";
+                        btnUpdateEmployee.Enabled = false;
                     }
                     else
                     {
@@ -242,8 +254,8 @@ namespace InterfataUtilizator
             }
             else
             {
-                if (!Regex.IsMatch(txtEmployeeLastName.Text, @"^[a-zA-Z]+$"))
-                {
+                if (!Regex.IsMatch(txtEmployeeLastName.Text, @"^[a-zA-ZăĂîÎșȘțȚșȘâÂ]+$"))
+                {      
                     lblMessage.Text = "Last name must contain only letters!";
                     return false;
                 }
@@ -256,6 +268,11 @@ namespace InterfataUtilizator
             }
             else
             {
+                if(txtEmployeeCNP.Text.Length != 13)
+                {
+                    lblMessage.Text = "Incorrect length of CNP!";
+                    return false;
+                }
                 if (!txtEmployeeCNP.Text.All(char.IsDigit))
                 {
                     lblMessage.Text = "CNP must contain only numbers!";
@@ -263,14 +280,14 @@ namespace InterfataUtilizator
                 }
             }
             //validate email
-            if (txtEmployeeLastName.Text == string.Empty)
+            if (txtEmployeeEmail.Text == string.Empty)
             {
                 lblMessage.Text = "Email must be entered!";
                 return false;
             }
             else
             {
-                if (!Regex.IsMatch(txtEmployeeFirstName.Text, @"^[a-zA-Z@.]+$"))
+                if (!Regex.IsMatch(txtEmployeeEmail.Text, @"^[a-zA-Z@.]+$"))
                 {
                     lblMessage.Text = "Email wrong format!";
                     return false;
@@ -284,6 +301,11 @@ namespace InterfataUtilizator
             }
             else
             {
+                if(txtEmployeePhoneNumber.Text.Length != 10)
+                {
+                    lblMessage.Text = "Incorrect length of phone number!";
+                    return false;
+                }
                 if (!txtEmployeePhoneNumber.Text.All(char.IsDigit))
                 {
                     lblMessage.Text = "Phone number wrong format!";
@@ -291,7 +313,6 @@ namespace InterfataUtilizator
                 }
             }
             //validate salary
-            //validate phone number
             if (txtEmployeeSalary.Text == string.Empty)
             {
                 lblMessage.Text = "Salary must be entered!";

@@ -13,7 +13,7 @@ namespace NivelAccesDate
         public List<EmployeeInDepartment> GetEmployeesInDepartments()
         {
             var result = new List<EmployeeInDepartment>();
-            var dsEmployeesInDepartments = SqlDBHelper.ExecuteDataSet("select * from EmployeesInDepartments WHERE isDeleted = 'N'", CommandType.Text);
+            var dsEmployeesInDepartments = SqlDBHelper.ExecuteDataSet("select * from EmployeesInDepartments eid, Employees_SEM e, Departments_SEM d, Roles_SEM r WHERE e.employee_id = eid.employee_id AND d.department_id = eid.department_id AND r.role_id = eid.role_id AND e.isDeleted = 'N' AND d.isDeleted = 'N' AND r.isDeleted = 'N'", CommandType.Text);
 
             foreach (DataRow lineFromDB in dsEmployeesInDepartments.Tables[FIRST_TABLE].Rows)
             {

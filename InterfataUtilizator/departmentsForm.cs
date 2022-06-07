@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using NivelAccesDate;
 using LibrarieModele;
-
+using System.Text.RegularExpressions;
 
 namespace InterfataUtilizator
 {
@@ -25,6 +25,8 @@ namespace InterfataUtilizator
             CheckStorage();
             ShowDepartmentsNumber();
             InitializeEmployeeComboBox();
+            btnUpdateDepartment.Enabled = false;
+            btnDeleteDepartment.Enabled = false;
         }
 
         void ShowDepartmentsNumber()
@@ -42,7 +44,8 @@ namespace InterfataUtilizator
 
         private void btnAddDepartment_Click_1(object sender, EventArgs e)
         {
-          
+            if (dataValidation())
+            {
                 try
                 {
                     var department = new Department(
@@ -53,7 +56,7 @@ namespace InterfataUtilizator
                     var rezultat = stocareDepartments.AddDepartment(department);
                     if (rezultat == SUCCES)
                     {
-                    ShowDepartmentsNumber();
+                        ShowDepartmentsNumber();
                         txtDepartmentTitle.Text = null;
                         lblMessageDepartment.ForeColor = Color.Green;
                         lblMessageDepartment.Text = "Role added!";
@@ -68,6 +71,7 @@ namespace InterfataUtilizator
                 {
                     MessageBox.Show("Excception" + ex.Message);
                 }
+            }
             
         }
 
@@ -100,6 +104,10 @@ namespace InterfataUtilizator
             
             try
             {
+                btnUpdateDepartment.Enabled = false;
+                btnDeleteDepartment.Enabled = false;
+                txtDepartmentTitle.Text = null;
+                cmbEmployee.SelectedIndex = -1;
                 lblMessageDepartment.Text = null;
                 var departments = stocareDepartments.GetDepartments();
 
@@ -146,7 +154,6 @@ namespace InterfataUtilizator
             {
                 Department department = stocareDepartments.GetDepartment(Int32.Parse(departmentID));
 
-                //incarcarea datelor in controalele de pe forma
                 if (department != null)
                 {
                     department.title = txtDepartmentTitle.Text;
@@ -175,7 +182,11 @@ namespace InterfataUtilizator
 
         private void dgvDepartments_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if(dgvDepartments.CurrentCell.RowIndex > -1)
+            {
+                btnDeleteDepartment.Enabled = true;
+                btnUpdateDepartment.Enabled = true;
+            }
             int currentRowIndex = dgvDepartments.CurrentCell.RowIndex;
             string departmentID = dgvDepartments[FIRST_COLUMN, currentRowIndex].Value.ToString();
 
@@ -196,6 +207,31 @@ namespace InterfataUtilizator
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+        private bool dataValidation()
+        {
+            lblMessageDepartment.ForeColor = Color.Red;
+            //validate department title
+            if (txtDepartmentTitle.Text == string.Empty)
+            {
+                lblMessageDepartment.Text = "Department title must be entered!";
+                return false;
+            }
+            else
+            {
+                if (!Regex.IsMatch(txtDepartmentTitle.Text, @"^[a-zA-Z ]+$"))
+                {
+                    lblMessageDepartment.Text = "Department title wrong format!";
+                    return false;
+                }
+            }
+            if(cmbEmployee.SelectedIndex == -1)
+            {
+                lblMessageDepartment.Text = "Select one manager!";
+                return false;
+            }
+            lblMessageDepartment.ForeColor = Color.Green;
+            return true;
         }
     }
 }

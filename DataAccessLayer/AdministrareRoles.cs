@@ -64,7 +64,7 @@ namespace NivelAccesDate
 
         public int GetRolesNumber()
         {
-            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(role_id) AS role_no FROM roles_SEM", CommandType.Text);
+            var dsResult = SqlDBHelper.ExecuteDataSet("SELECT COUNT(role_id) AS role_no FROM roles_SEM WHERE isDeleted = 'N'", CommandType.Text);
             DataRow linieBD = dsResult.Tables[FIRST_TABLE].Rows[FIRST_LINE];
             return int.Parse(linieBD["role_no"].ToString());
         }

@@ -37,6 +37,7 @@ namespace InterfataUtilizator
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.btnShowDepartments = new System.Windows.Forms.Button();
             this.grbAddAndUpdateDepartment = new System.Windows.Forms.GroupBox();
+            this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.lblManager = new System.Windows.Forms.Label();
             this.btnUpdateDepartment = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@ namespace InterfataUtilizator
             this.lblDepartmentTitle = new System.Windows.Forms.Label();
             this.txtDepartmentTitle = new System.Windows.Forms.TextBox();
             this.lblNumberOfDepartments = new System.Windows.Forms.Label();
-            this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.grbShowDepartments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.grbAddAndUpdateDepartment.SuspendLayout();
@@ -113,7 +113,7 @@ namespace InterfataUtilizator
             this.dgvDepartments.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDepartments.Size = new System.Drawing.Size(828, 415);
             this.dgvDepartments.TabIndex = 6;
-            this.dgvDepartments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellContentClick);
+            this.dgvDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellContentClick);
             // 
             // btnShowDepartments
             // 
@@ -148,6 +148,19 @@ namespace InterfataUtilizator
             this.grbAddAndUpdateDepartment.TabIndex = 30;
             this.grbAddAndUpdateDepartment.TabStop = false;
             this.grbAddAndUpdateDepartment.Text = "Add/Update department";
+            // 
+            // cmbEmployee
+            // 
+            this.cmbEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cmbEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbEmployee.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.cmbEmployee.ForeColor = System.Drawing.Color.White;
+            this.cmbEmployee.FormattingEnabled = true;
+            this.cmbEmployee.Location = new System.Drawing.Point(7, 124);
+            this.cmbEmployee.Name = "cmbEmployee";
+            this.cmbEmployee.Size = new System.Drawing.Size(241, 27);
+            this.cmbEmployee.TabIndex = 46;
             // 
             // lblManager
             // 
@@ -240,19 +253,6 @@ namespace InterfataUtilizator
             this.lblNumberOfDepartments.Size = new System.Drawing.Size(70, 26);
             this.lblNumberOfDepartments.TabIndex = 32;
             this.lblNumberOfDepartments.Text = "label1";
-            // 
-            // cmbEmployee
-            // 
-            this.cmbEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cmbEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbEmployee.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.cmbEmployee.ForeColor = System.Drawing.Color.White;
-            this.cmbEmployee.FormattingEnabled = true;
-            this.cmbEmployee.Location = new System.Drawing.Point(7, 124);
-            this.cmbEmployee.Name = "cmbEmployee";
-            this.cmbEmployee.Size = new System.Drawing.Size(241, 27);
-            this.cmbEmployee.TabIndex = 46;
             // 
             // departmentsForm
             // 

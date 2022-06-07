@@ -111,7 +111,7 @@ namespace InterfataUtilizator
             this.dgvRoles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRoles.Size = new System.Drawing.Size(828, 411);
             this.dgvRoles.TabIndex = 6;
-            this.dgvRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoles_CellContentClick);
+            this.dgvRoles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoles_CellContentClick);
             // 
             // btnShowRoles
             // 
