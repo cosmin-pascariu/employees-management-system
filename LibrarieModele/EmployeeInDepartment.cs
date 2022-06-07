@@ -12,6 +12,7 @@ namespace LibrarieModele
         public DateTime start_date { get; set; }
         public DateTime stop_date { get; set; }
         public char active { get; set; }
+        public char isDeleted { get; set; }
 
         //Load adtional entities
         public virtual Employees Employee { get; set; }
@@ -20,7 +21,7 @@ namespace LibrarieModele
 
         public EmployeeInDepartment()
         { }
-        public EmployeeInDepartment(DateTime start_date, DateTime stop_date, char active, int employee_id = 0,int department_id = 0, int role_id = 0, int id = 0)
+        public EmployeeInDepartment(DateTime start_date, DateTime stop_date, char active, int employee_id = 0,int department_id = 0, int role_id = 0, int id = 0, char isDeleted = 'N')
         {
             this.employee_id = employee_id;
             this.department_id = department_id;
@@ -29,6 +30,7 @@ namespace LibrarieModele
             this.stop_date = stop_date;
             this.active = active;
             this.id = id;
+            this.isDeleted = isDeleted;
         }
 
         public EmployeeInDepartment(DataRow lineFromDB)
@@ -40,6 +42,7 @@ namespace LibrarieModele
             this.start_date = Convert.ToDateTime(lineFromDB["start_date"].ToString());
             this.stop_date = Convert.ToDateTime(lineFromDB["stop_date"].ToString());
             this.active = Convert.ToChar(lineFromDB["active"].ToString());
+            this.isDeleted = Convert.ToChar(lineFromDB["isDeleted"].ToString());
         }
     }
 }

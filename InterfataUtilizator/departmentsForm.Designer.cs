@@ -37,8 +37,7 @@ namespace InterfataUtilizator
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.btnShowDepartments = new System.Windows.Forms.Button();
             this.grbAddAndUpdateDepartment = new System.Windows.Forms.GroupBox();
-            this.lblManagerId = new System.Windows.Forms.Label();
-            this.txtManagerId = new System.Windows.Forms.TextBox();
+            this.lblManager = new System.Windows.Forms.Label();
             this.btnUpdateDepartment = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.lblMessageDepartment = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@ namespace InterfataUtilizator
             this.lblDepartmentTitle = new System.Windows.Forms.Label();
             this.txtDepartmentTitle = new System.Windows.Forms.TextBox();
             this.lblNumberOfDepartments = new System.Windows.Forms.Label();
+            this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.grbShowDepartments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.grbAddAndUpdateDepartment.SuspendLayout();
@@ -132,8 +132,8 @@ namespace InterfataUtilizator
             // 
             // grbAddAndUpdateDepartment
             // 
-            this.grbAddAndUpdateDepartment.Controls.Add(this.lblManagerId);
-            this.grbAddAndUpdateDepartment.Controls.Add(this.txtManagerId);
+            this.grbAddAndUpdateDepartment.Controls.Add(this.cmbEmployee);
+            this.grbAddAndUpdateDepartment.Controls.Add(this.lblManager);
             this.grbAddAndUpdateDepartment.Controls.Add(this.btnUpdateDepartment);
             this.grbAddAndUpdateDepartment.Controls.Add(this.lblMessage);
             this.grbAddAndUpdateDepartment.Controls.Add(this.lblMessageDepartment);
@@ -144,32 +144,21 @@ namespace InterfataUtilizator
             this.grbAddAndUpdateDepartment.ForeColor = System.Drawing.Color.White;
             this.grbAddAndUpdateDepartment.Location = new System.Drawing.Point(14, 12);
             this.grbAddAndUpdateDepartment.Name = "grbAddAndUpdateDepartment";
-            this.grbAddAndUpdateDepartment.Size = new System.Drawing.Size(254, 216);
+            this.grbAddAndUpdateDepartment.Size = new System.Drawing.Size(254, 238);
             this.grbAddAndUpdateDepartment.TabIndex = 30;
             this.grbAddAndUpdateDepartment.TabStop = false;
             this.grbAddAndUpdateDepartment.Text = "Add/Update department";
             // 
-            // lblManagerId
+            // lblManager
             // 
-            this.lblManagerId.AutoSize = true;
-            this.lblManagerId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManagerId.ForeColor = System.Drawing.Color.White;
-            this.lblManagerId.Location = new System.Drawing.Point(8, 103);
-            this.lblManagerId.Name = "lblManagerId";
-            this.lblManagerId.Size = new System.Drawing.Size(104, 21);
-            this.lblManagerId.TabIndex = 45;
-            this.lblManagerId.Text = "Manager ID";
-            // 
-            // txtManagerId
-            // 
-            this.txtManagerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtManagerId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtManagerId.ForeColor = System.Drawing.Color.White;
-            this.txtManagerId.Location = new System.Drawing.Point(131, 97);
-            this.txtManagerId.MaxLength = 30;
-            this.txtManagerId.Name = "txtManagerId";
-            this.txtManagerId.Size = new System.Drawing.Size(117, 27);
-            this.txtManagerId.TabIndex = 46;
+            this.lblManager.AutoSize = true;
+            this.lblManager.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManager.ForeColor = System.Drawing.Color.White;
+            this.lblManager.Location = new System.Drawing.Point(8, 100);
+            this.lblManager.Name = "lblManager";
+            this.lblManager.Size = new System.Drawing.Size(87, 21);
+            this.lblManager.TabIndex = 45;
+            this.lblManager.Text = "Manager ";
             // 
             // btnUpdateDepartment
             // 
@@ -177,7 +166,7 @@ namespace InterfataUtilizator
             this.btnUpdateDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateDepartment.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateDepartment.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateDepartment.Location = new System.Drawing.Point(7, 175);
+            this.btnUpdateDepartment.Location = new System.Drawing.Point(7, 199);
             this.btnUpdateDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateDepartment.Name = "btnUpdateDepartment";
             this.btnUpdateDepartment.Size = new System.Drawing.Size(75, 32);
@@ -199,7 +188,7 @@ namespace InterfataUtilizator
             // 
             this.lblMessageDepartment.AutoSize = true;
             this.lblMessageDepartment.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessageDepartment.Location = new System.Drawing.Point(9, 140);
+            this.lblMessageDepartment.Location = new System.Drawing.Point(14, 166);
             this.lblMessageDepartment.Name = "lblMessageDepartment";
             this.lblMessageDepartment.Size = new System.Drawing.Size(0, 17);
             this.lblMessageDepartment.TabIndex = 18;
@@ -210,7 +199,7 @@ namespace InterfataUtilizator
             this.btnAddDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDepartment.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddDepartment.ForeColor = System.Drawing.Color.White;
-            this.btnAddDepartment.Location = new System.Drawing.Point(173, 175);
+            this.btnAddDepartment.Location = new System.Drawing.Point(173, 199);
             this.btnAddDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddDepartment.Name = "btnAddDepartment";
             this.btnAddDepartment.Size = new System.Drawing.Size(75, 32);
@@ -224,7 +213,7 @@ namespace InterfataUtilizator
             this.lblDepartmentTitle.AutoSize = true;
             this.lblDepartmentTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartmentTitle.ForeColor = System.Drawing.Color.White;
-            this.lblDepartmentTitle.Location = new System.Drawing.Point(8, 64);
+            this.lblDepartmentTitle.Location = new System.Drawing.Point(8, 49);
             this.lblDepartmentTitle.Name = "lblDepartmentTitle";
             this.lblDepartmentTitle.Size = new System.Drawing.Size(41, 21);
             this.lblDepartmentTitle.TabIndex = 10;
@@ -235,10 +224,10 @@ namespace InterfataUtilizator
             this.txtDepartmentTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtDepartmentTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDepartmentTitle.ForeColor = System.Drawing.Color.White;
-            this.txtDepartmentTitle.Location = new System.Drawing.Point(66, 61);
+            this.txtDepartmentTitle.Location = new System.Drawing.Point(7, 69);
             this.txtDepartmentTitle.MaxLength = 30;
             this.txtDepartmentTitle.Name = "txtDepartmentTitle";
-            this.txtDepartmentTitle.Size = new System.Drawing.Size(184, 27);
+            this.txtDepartmentTitle.Size = new System.Drawing.Size(241, 27);
             this.txtDepartmentTitle.TabIndex = 11;
             // 
             // lblNumberOfDepartments
@@ -251,6 +240,19 @@ namespace InterfataUtilizator
             this.lblNumberOfDepartments.Size = new System.Drawing.Size(70, 26);
             this.lblNumberOfDepartments.TabIndex = 32;
             this.lblNumberOfDepartments.Text = "label1";
+            // 
+            // cmbEmployee
+            // 
+            this.cmbEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cmbEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbEmployee.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.cmbEmployee.ForeColor = System.Drawing.Color.White;
+            this.cmbEmployee.FormattingEnabled = true;
+            this.cmbEmployee.Location = new System.Drawing.Point(7, 124);
+            this.cmbEmployee.Name = "cmbEmployee";
+            this.cmbEmployee.Size = new System.Drawing.Size(241, 27);
+            this.cmbEmployee.TabIndex = 46;
             // 
             // departmentsForm
             // 
@@ -283,8 +285,8 @@ namespace InterfataUtilizator
         private System.Windows.Forms.Button btnAddDepartment;
         private System.Windows.Forms.Label lblDepartmentTitle;
         private System.Windows.Forms.TextBox txtDepartmentTitle;
-        private System.Windows.Forms.Label lblManagerId;
-        private System.Windows.Forms.TextBox txtManagerId;
+        private System.Windows.Forms.Label lblManager;
         private System.Windows.Forms.Label lblNumberOfDepartments;
+        private System.Windows.Forms.ComboBox cmbEmployee;
     }
 }

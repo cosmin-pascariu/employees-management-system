@@ -158,12 +158,12 @@ namespace InterfataUtilizator
                 var employees = stocareEmployeesInDepartments.GetEmployeesInDepartments();
                 if (employees != null && employees.Any())
                 {
-                    dgvEmployees.DataSource = employees.Select(emp => new { emp.id, emp.employee_id, emp.department_id, emp.role_id, emp.start_date, emp.stop_date, emp.active}).ToList();
+                    dgvEmployees.DataSource = employees.Select(emp => new { emp.id, employee = emp.Employee.first_name+" "+emp.Employee.last_name,department = emp.Department.title,role = emp.Role.title, emp.start_date, emp.stop_date, emp.active}).ToList();
 
                     dgvEmployees.Columns["id"].Visible = false;
-                    dgvEmployees.Columns["employee_id"].HeaderText = "Employee ID";
-                    dgvEmployees.Columns["department_id"].HeaderText = "Department ID";
-                    dgvEmployees.Columns["role_id"].HeaderText = "Role ID";
+                    dgvEmployees.Columns["employee"].HeaderText = "Employee";
+                    dgvEmployees.Columns["department"].HeaderText = "Department";
+                    dgvEmployees.Columns["role"].HeaderText = "Role";
                     dgvEmployees.Columns["start_date"].HeaderText = "Start Date";
                     dgvEmployees.Columns["stop_date"].HeaderText = "Stop Date";
                     dgvEmployees.Columns["active"].HeaderText = "Active";
@@ -236,8 +236,6 @@ namespace InterfataUtilizator
             {
                 EmployeeInDepartment emp = stocareEmployeesInDepartments.GetEmployeeInDepartment(Int32.Parse(employeeID));
                
-
-                //incarcarea datelor in controalele de pe forma
                 if (emp != null)
                 {
                     cmbEmployee.SelectedItem = new ComboItem(emp.Employee.first_name+" "+emp.Employee.last_name,emp.employee_id);

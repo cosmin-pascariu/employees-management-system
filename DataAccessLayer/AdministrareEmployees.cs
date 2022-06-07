@@ -13,7 +13,7 @@ namespace NivelAccesDate
         public List<Employees> GetEmployees()
         {
             var result = new List<Employees>();
-            var dsEmployees = SqlDBHelper.ExecuteDataSet("select * from Employees_SEM", CommandType.Text);
+            var dsEmployees = SqlDBHelper.ExecuteDataSet("select * from Employees_SEM WHERE isDeleted = 'N'", CommandType.Text);
 
             foreach (DataRow lineFromDB in dsEmployees.Tables[FIRST_TABLE].Rows)
             {
@@ -40,7 +40,7 @@ namespace NivelAccesDate
         public bool AddEmployee(Employees e)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "insert into Employees_SEM VALUES (seq_Employees_SEM.nextval, :first_name, :last_name, :cnp, :email, :phone_number, :birth_date, :hire_date, :salary)", CommandType.Text,
+                "insert into Employees_SEM VALUES (seq_Employees_SEM.nextval, :first_name, :last_name, :cnp, :email, :phone_number, :birth_date, :hire_date, :salary, :isDeleted)", CommandType.Text,
                 new OracleParameter(":first_name", OracleDbType.NVarchar2, e.first_name, ParameterDirection.Input),
                 new OracleParameter(":last_name", OracleDbType.NVarchar2, e.last_name, ParameterDirection.Input),
                 new OracleParameter(":cnp", OracleDbType.NVarchar2, e.cnp, ParameterDirection.Input),
@@ -48,7 +48,8 @@ namespace NivelAccesDate
                 new OracleParameter(":phone_number", OracleDbType.NVarchar2, e.phone_number, ParameterDirection.Input),
                 new OracleParameter(":birth_date", OracleDbType.Date, e.birth_date, ParameterDirection.Input),
                 new OracleParameter(":hire_date", OracleDbType.Date, e.hire_date, ParameterDirection.Input),
-                new OracleParameter(":salary", OracleDbType.Int32, e.salary, ParameterDirection.Input)
+                new OracleParameter(":salary", OracleDbType.Int32, e.salary, ParameterDirection.Input),
+                new OracleParameter(":isDeleted", OracleDbType.Char, e.isDeleted, ParameterDirection.Input)
 
             );
         }
@@ -72,7 +73,7 @@ namespace NivelAccesDate
         public bool DeleteEmployee(int id)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "DELETE from Employees_SEM WHERE employee_id = :employee_id", CommandType.Text, new OracleParameter(":emmployee_id", OracleDbType.Int32, id, ParameterDirection.Input)
+                "UPDATE Employees_SEM set isDeleted ='Y' WHERE employee_id = :employee_id", CommandType.Text, new OracleParameter(":emmployee_id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }
 

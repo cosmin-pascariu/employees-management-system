@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using NivelAccesDate;
 using LibrarieModele;
+using System.Text.RegularExpressions;
 
 namespace InterfataUtilizator
 {
@@ -38,30 +39,32 @@ namespace InterfataUtilizator
 
         private void btnAddRole_Click(object sender, EventArgs e)
         {
-            try
+            if (dataValidation())
             {
-                var role = new Role(
-                    txtRoleTitle.Text,
-                    0
-                 );
+                try
+                {
+                    var role = new Role(
+                        txtRoleTitle.Text
+                     );
 
-                var rezultat = stocareRoles.AddRole(role);
-                if (rezultat == SUCCES)
-                {
-                    txtRoleTitle.Text = null;
-                    ShowRolesNumber();
-                    lblMessageRole.ForeColor = Color.Green;
-                    lblMessageRole.Text = "Role added!";
+                    var rezultat = stocareRoles.AddRole(role);
+                    if (rezultat == SUCCES)
+                    {
+                        txtRoleTitle.Text = null;
+                        ShowRolesNumber();
+                        lblMessageRole.ForeColor = Color.Green;
+                        lblMessageRole.Text = "Role added!";
+                    }
+                    else
+                    {
+                        lblMessageRole.ForeColor = Color.Red;
+                        lblMessageRole.Text = "Error at adding role";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    lblMessageRole.ForeColor = Color.Red;
-                    lblMessageRole.Text = "Error at adding role";
+                    MessageBox.Show("Excception" + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Excception" + ex.Message);
             }
         }
 
@@ -106,34 +109,37 @@ namespace InterfataUtilizator
             int currentRowIndex = dgvRoles.CurrentCell.RowIndex;
             string roleID = dgvRoles[FIRST_COLUMN, currentRowIndex].Value.ToString();
 
-            try
+            if (dataValidation())
             {
-                Role role = stocareRoles.GetRole(Int32.Parse(roleID));
-               
+                try
+                {
+                    Role role = stocareRoles.GetRole(Int32.Parse(roleID));
 
-                //incarcarea datelor in controalele de pe forma
-                if (role != null)
-                {
-                    role.title = txtRoleTitle.Text;
-                }
 
-                var rezultat = stocareRoles.UpdateRole(role);
-                if (rezultat == SUCCES)
-                {
-                    txtRoleTitle.Text = null;
-                    btnShowRoles_Click(sender, e);
-                    lblMessageRole.ForeColor = Color.Green;
-                    lblMessageRole.Text = "Updated role!";
+                    //incarcarea datelor in controalele de pe forma
+                    if (role != null)
+                    {
+                        role.title = txtRoleTitle.Text;
+                    }
+
+                    var rezultat = stocareRoles.UpdateRole(role);
+                    if (rezultat == SUCCES)
+                    {
+                        txtRoleTitle.Text = null;
+                        btnShowRoles_Click(sender, e);
+                        lblMessageRole.ForeColor = Color.Green;
+                        lblMessageRole.Text = "Updated role!";
+                    }
+                    else
+                    {
+                        lblMessageRole.ForeColor = Color.Red;
+                        lblMessageRole.Text = "Role update error!";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    lblMessageRole.ForeColor = Color.Red;
-                    lblMessageRole.Text = "Role update error!";
+                    MessageBox.Show(ex.Message.ToString());
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
             }
         }
 
@@ -158,6 +164,27 @@ namespace InterfataUtilizator
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        private bool dataValidation()
+        {
+            lblMessageRole.ForeColor = Color.Red;
+            //validate role title
+            if (txtRoleTitle.Text == string.Empty)
+            {
+                lblMessageRole.Text = "Role title must be entered!";
+                return false;
+            }
+            else
+            {
+                if (!Regex.IsMatch(txtRoleTitle.Text, @"^[a-zA-Z ]+$"))
+                {
+                    lblMessageRole.Text = "Role title wrong format!";
+                    return false;
+                }
+            }
+            lblMessageRole.ForeColor = Color.Green;
+            return true;
+        } 
 
     }
 }

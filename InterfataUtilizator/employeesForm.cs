@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using NivelAccesDate;
 using LibrarieModele;
+using System.Text.RegularExpressions;
 
 namespace InterfataUtilizator
 {
@@ -55,38 +56,41 @@ namespace InterfataUtilizator
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            try
+            if (dataValidation())
             {
-                var employee = new Employees(
-                    txtEmployeeFirstName.Text,
-                    txtEmployeeLastName.Text,
-                    txtEmployeeCNP.Text,
-                    txtEmployeeEmail.Text,
-                    txtEmployeePhoneNumber.Text,
-                    Convert.ToDateTime(dtpEmployeeBirthDate.Text),
-                    Convert.ToDateTime(dtpEmployeeHireDate.Text),
-                    double.Parse(txtEmployeeSalary.Text),
-                    0
-                 ) ;
-               
-                var rezultat = stocareEmployees.AddEmployee(employee);
-                if (rezultat == SUCCES)
+                try
                 {
-                    resetControls();
-                    ShowNumberOfEmployees();
-                    btnShowEmployees_Click(sender, e);
-                    lblMessage.ForeColor = Color.Green;
-                    lblMessage.Text = "Employee added!";
+                    var employee = new Employees(
+                        txtEmployeeFirstName.Text,
+                        txtEmployeeLastName.Text,
+                        txtEmployeeCNP.Text,
+                        txtEmployeeEmail.Text,
+                        txtEmployeePhoneNumber.Text,
+                        Convert.ToDateTime(dtpEmployeeBirthDate.Text),
+                        Convert.ToDateTime(dtpEmployeeHireDate.Text),
+                        double.Parse(txtEmployeeSalary.Text),
+                        0
+                     );
+
+                    var rezultat = stocareEmployees.AddEmployee(employee);
+                    if (rezultat == SUCCES)
+                    {
+                        resetControls();
+                        ShowNumberOfEmployees();
+                        btnShowEmployees_Click(sender, e);
+                        lblMessage.ForeColor = Color.Green;
+                        lblMessage.Text = "Employee added!";
+                    }
+                    else
+                    {
+                        lblMessage.ForeColor = Color.Red;
+                        lblMessage.Text = "Error at adding employee";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    lblMessage.ForeColor = Color.Red;
-                    lblMessage.Text = "Error at adding employee";
+                    MessageBox.Show("Excception" + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Excception" + ex.Message);
             }
         }
 
@@ -163,38 +167,41 @@ namespace InterfataUtilizator
             int currentRowIndex = dgvEmployees.CurrentCell.RowIndex;
             string employeeID = dgvEmployees[FIRST_COLUMN, currentRowIndex].Value.ToString();
 
-            try
+            if (dataValidation())
             {
-                Employees emp = stocareEmployees.GetEmployee(Int32.Parse(employeeID));
-                if (emp != null)
+                try
                 {
-                    emp.first_name = txtEmployeeFirstName.Text;
-                    emp.last_name = txtEmployeeLastName.Text;
-                    emp.cnp = txtEmployeeCNP.Text;
-                    emp.email = txtEmployeeEmail.Text;
-                    emp.phone_number = txtEmployeePhoneNumber.Text;
-                    emp.birth_date = Convert.ToDateTime(dtpEmployeeBirthDate.Text);
-                    emp.hire_date = Convert.ToDateTime(dtpEmployeeBirthDate.Text);
-                    emp.salary = double.Parse(txtEmployeeSalary.Text);
-                }
+                    Employees emp = stocareEmployees.GetEmployee(Int32.Parse(employeeID));
+                    if (emp != null)
+                    {
+                        emp.first_name = txtEmployeeFirstName.Text;
+                        emp.last_name = txtEmployeeLastName.Text;
+                        emp.cnp = txtEmployeeCNP.Text;
+                        emp.email = txtEmployeeEmail.Text;
+                        emp.phone_number = txtEmployeePhoneNumber.Text;
+                        emp.birth_date = Convert.ToDateTime(dtpEmployeeBirthDate.Text);
+                        emp.hire_date = Convert.ToDateTime(dtpEmployeeBirthDate.Text);
+                        emp.salary = double.Parse(txtEmployeeSalary.Text);
+                    }
 
-                var rezultat = stocareEmployees.UpdateEmployee(emp);
-                if (rezultat == SUCCES)
-                {
-                    resetControls();
-                    btnShowEmployees_Click(sender,e);
-                    lblMessage.ForeColor = Color.Green;
-                    lblMessage.Text = "Updated employee!";
+                    var rezultat = stocareEmployees.UpdateEmployee(emp);
+                    if (rezultat == SUCCES)
+                    {
+                        resetControls();
+                        btnShowEmployees_Click(sender, e);
+                        lblMessage.ForeColor = Color.Green;
+                        lblMessage.Text = "Updated employee!";
+                    }
+                    else
+                    {
+                        lblMessage.ForeColor = Color.Red;
+                        lblMessage.Text = "Employee update error!";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    lblMessage.ForeColor = Color.Red;
-                    lblMessage.Text = "Employee update error!";
+                    MessageBox.Show("Excception" + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Excception" + ex.Message);
             }
         }
 
@@ -209,6 +216,97 @@ namespace InterfataUtilizator
             dtpEmployeeHireDate.Value = DateTime.Today;
             txtEmployeeSalary.Text = null;
             lblMessage.Text = null;
+        }
+        private bool dataValidation()
+        {
+            lblMessage.ForeColor = Color.Red;
+            //validate first name
+            if (txtEmployeeFirstName.Text == string.Empty)
+            {
+                lblMessage.Text = "First name must be entered!";
+                return false;
+            }
+            else
+            {
+                if(!Regex.IsMatch(txtEmployeeFirstName.Text, @"^[a-zA-Z]+$"))
+                {
+                    lblMessage.Text = "Fisrt name must contain only letters!";
+                    return false;
+                }
+            }
+            //validate last name
+            if (txtEmployeeLastName.Text == string.Empty)
+            {
+                lblMessage.Text = "Last name must be entered!";
+                return false;
+            }
+            else
+            {
+                if (!Regex.IsMatch(txtEmployeeLastName.Text, @"^[a-zA-Z]+$"))
+                {
+                    lblMessage.Text = "Last name must contain only letters!";
+                    return false;
+                }
+            }
+            //validate CNP
+            if (txtEmployeeCNP.Text == string.Empty)
+            {
+                lblMessage.Text = "CNP must be entered!";
+                return false;
+            }
+            else
+            {
+                if (!txtEmployeeCNP.Text.All(char.IsDigit))
+                {
+                    lblMessage.Text = "CNP must contain only numbers!";
+                    return false;
+                }
+            }
+            //validate email
+            if (txtEmployeeLastName.Text == string.Empty)
+            {
+                lblMessage.Text = "Email must be entered!";
+                return false;
+            }
+            else
+            {
+                if (!Regex.IsMatch(txtEmployeeFirstName.Text, @"^[a-zA-Z@.]+$"))
+                {
+                    lblMessage.Text = "Email wrong format!";
+                    return false;
+                }
+            }
+            //validate phone number
+            if (txtEmployeePhoneNumber.Text == string.Empty)
+            {
+                lblMessage.Text = "Phone number must be entered!";
+                return false;
+            }
+            else
+            {
+                if (!txtEmployeePhoneNumber.Text.All(char.IsDigit))
+                {
+                    lblMessage.Text = "Phone number wrong format!";
+                    return false;
+                }
+            }
+            //validate salary
+            //validate phone number
+            if (txtEmployeeSalary.Text == string.Empty)
+            {
+                lblMessage.Text = "Salary must be entered!";
+                return false;
+            }
+            else
+            {
+                if (!txtEmployeeSalary.Text.All(char.IsDigit))
+                {
+                    lblMessage.Text = "Salary wrong format!";
+                    return false;
+                }
+            }
+            lblMessage.ForeColor = Color.Green;
+            return true;
         }
     }
 }

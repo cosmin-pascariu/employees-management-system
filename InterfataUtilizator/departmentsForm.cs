@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -16,12 +17,14 @@ namespace InterfataUtilizator
         private const int FIRST_COLUMN = 0;
 
         IStocareDepartments stocareDepartments = (IStocareDepartments)new StocareFactory().GetTipStocare(typeof(Department));
+        IStocareEmployees stocareEmployees = (IStocareEmployees)new StocareFactory().GetTipStocare(typeof(Employees));
 
         public departmentsForm()
         {
             InitializeComponent();
             CheckStorage();
             ShowDepartmentsNumber();
+            InitializeEmployeeComboBox();
         }
 
         void ShowDepartmentsNumber()
@@ -44,8 +47,7 @@ namespace InterfataUtilizator
                 {
                     var department = new Department(
                         txtDepartmentTitle.Text,
-                        Int32.Parse(txtManagerId.Text),
-                        0
+                       ((ComboItem)cmbEmployee.SelectedItem).Value
                      );
 
                     var rezultat = stocareDepartments.AddDepartment(department);
@@ -53,7 +55,6 @@ namespace InterfataUtilizator
                     {
                     ShowDepartmentsNumber();
                         txtDepartmentTitle.Text = null;
-                    txtManagerId.Text = null;
                         lblMessageDepartment.ForeColor = Color.Green;
                         lblMessageDepartment.Text = "Role added!";
                     }
@@ -70,20 +71,47 @@ namespace InterfataUtilizator
             
         }
 
-        private void btnShowDepartments_Click(object sender, EventArgs e)
+        public void InitializeEmployeeComboBox()
         {
 
             try
             {
+                //delete previous items
+                cmbEmployee.Items.Clear();
+
+                var employees = stocareEmployees.GetEmployees();
+                if (employees != null && employees.Any())
+                {
+                    foreach (var employee in employees)
+                    {
+                        cmbEmployee.Items.Add(new ComboItem(employee.first_name + " " + employee.last_name, (Int32)employee.employee_id));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+        }
+
+        private void btnShowDepartments_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
                 lblMessageDepartment.Text = null;
                 var departments = stocareDepartments.GetDepartments();
+
+                dgvDepartments.DataSource = departments.Select(dep => new { dep.department_id,dep.title,dep.manager_id }).ToList();
+
                 if (departments != null && departments.Any())
                 {
-                    dgvDepartments.DataSource = departments.Select(department => new { department.department_id, department.title,department.manager_id }).ToList();
-
+                    dgvDepartments.DataSource = departments.Select(department => new { department.department_id, department.title,managerName = department.Manager.first_name+" "+department.Manager.last_name }).ToList();
                     dgvDepartments.Columns["department_id"].Visible = false;
                     dgvDepartments.Columns["title"].HeaderText = "Title";
-                    dgvDepartments.Columns["manager_id"].HeaderText = "Manager ID";
+                    dgvDepartments.Columns["managerName"].HeaderText = "Manager name";                   
+                  
                 }
             }
             catch (Exception ex)
@@ -122,14 +150,13 @@ namespace InterfataUtilizator
                 if (department != null)
                 {
                     department.title = txtDepartmentTitle.Text;
-                   department.manager_id = Int32.Parse(txtManagerId.Text);
+                   department.manager_id = ((ComboItem)cmbEmployee.SelectedItem).Value;
                 }
 
                 var rezultat = stocareDepartments.UpdateDepartment(department);
                 if (rezultat == SUCCES)
                 {
                     txtDepartmentTitle.Text = null;
-                    txtManagerId.Text = null;
                     btnShowDepartments_Click(sender, e);
                     lblMessageDepartment.ForeColor = Color.Green;
                     lblMessageDepartment.Text = "Updated department!";
@@ -155,12 +182,13 @@ namespace InterfataUtilizator
             try
             {
                 Department department = stocareDepartments.GetDepartment(Int32.Parse(departmentID));
+                var emp = stocareEmployees.GetEmployee(department.manager_id);
 
                 //incarcarea datelor in controalele de pe forma
                 if (department != null)
                 {
                     txtDepartmentTitle.Text = department.title;
-                    txtManagerId.Text = department.manager_id.ToString();
+                    cmbEmployee.SelectedItem = new ComboItem(emp.first_name + " " + emp.last_name, emp.employee_id);
                 }
 
             }

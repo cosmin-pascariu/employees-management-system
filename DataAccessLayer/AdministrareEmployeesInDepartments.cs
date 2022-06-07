@@ -13,7 +13,7 @@ namespace NivelAccesDate
         public List<EmployeeInDepartment> GetEmployeesInDepartments()
         {
             var result = new List<EmployeeInDepartment>();
-            var dsEmployeesInDepartments = SqlDBHelper.ExecuteDataSet("select * from EmployeesInDepartments", CommandType.Text);
+            var dsEmployeesInDepartments = SqlDBHelper.ExecuteDataSet("select * from EmployeesInDepartments WHERE isDeleted = 'N'", CommandType.Text);
 
             foreach (DataRow lineFromDB in dsEmployeesInDepartments.Tables[FIRST_TABLE].Rows)
             {
@@ -46,14 +46,14 @@ namespace NivelAccesDate
         public bool AddEmployeeInDepartment(EmployeeInDepartment ed)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "insert into EmployeesInDepartments VALUES (seq_EmployeesInDepartments.nextval,:employee_id, :department_id, :role_id, :start_date, :stop_date, :active)", CommandType.Text,
+                "insert into EmployeesInDepartments VALUES (seq_EmployeesInDepartments.nextval,:employee_id, :department_id, :role_id, :start_date, :stop_date, :active, :isDeleted)", CommandType.Text,
                 new OracleParameter(":employee_id", OracleDbType.Int32, ed.employee_id, ParameterDirection.Input),
                 new OracleParameter(":department_id", OracleDbType.Int32, ed.department_id, ParameterDirection.Input),
                   new OracleParameter(":role_id", OracleDbType.Int32, ed.role_id, ParameterDirection.Input),
                 new OracleParameter(":start_date", OracleDbType.Date, ed.start_date, ParameterDirection.Input),
                 new OracleParameter(":stop_date", OracleDbType.Date, ed.stop_date, ParameterDirection.Input),
-                new OracleParameter(":active", OracleDbType.Char, ed.active, ParameterDirection.Input)
-
+                new OracleParameter(":active", OracleDbType.Char, ed.active, ParameterDirection.Input),
+                new OracleParameter(":isDeleted", OracleDbType.Char, ed.isDeleted, ParameterDirection.Input)
             );
         }
 
@@ -74,7 +74,7 @@ namespace NivelAccesDate
         public bool DeleteEmployeeInDepartment(int id)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "DELETE from EmployeesInDepartments WHERE id = :id", CommandType.Text, new OracleParameter(":id", OracleDbType.Int32, id, ParameterDirection.Input)
+                "UPDATE EmployeesInDepartments set isDeleted ='Y' WHERE id = :id", CommandType.Text, new OracleParameter(":id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }
     }

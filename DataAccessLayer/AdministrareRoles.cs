@@ -13,7 +13,7 @@ namespace NivelAccesDate
         public List<Role> GetRoles()
         {
             var result = new List<Role>();
-            var dsRoles = SqlDBHelper.ExecuteDataSet("select * from Roles_SEM", CommandType.Text);
+            var dsRoles = SqlDBHelper.ExecuteDataSet("select * from Roles_SEM WHERE isDeleted = 'N'", CommandType.Text);
 
             foreach (DataRow lineFromDB in dsRoles.Tables[FIRST_TABLE].Rows)
             {
@@ -33,8 +33,6 @@ namespace NivelAccesDate
             {
                 DataRow lineFromDB = dsRoles.Tables[FIRST_TABLE].Rows[FIRST_LINE];
                 result = new Role(lineFromDB);
-                //incarca entitatile aditionale
-                //result.Companie = new AdministrareCompanii().GetCompanie(result.IdCompanie);
             }
             return result;
         }
@@ -42,9 +40,9 @@ namespace NivelAccesDate
         public bool AddRole(Role r)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "insert into Roles_SEM VALUES (seq_Roles_SEM.nextval, :title)", CommandType.Text,
-                new OracleParameter(":title", OracleDbType.NVarchar2, r.title, ParameterDirection.Input)
-                
+                "insert into Roles_SEM VALUES (seq_Roles_SEM.nextval, :title, :isDeleted)", CommandType.Text,
+                new OracleParameter(":title", OracleDbType.NVarchar2, r.title, ParameterDirection.Input),
+                new OracleParameter(":isDeleted", OracleDbType.Char, r.isDeleted, ParameterDirection.Input)
             );
         }
 
@@ -60,7 +58,7 @@ namespace NivelAccesDate
         public bool DeleteRole(int id)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "DELETE from Roles_SEM WHERE role_id = :role_id", CommandType.Text, new OracleParameter(":role_id", OracleDbType.Int32, id, ParameterDirection.Input)
+                 "UPDATE Roles_SEM set isDeleted ='Y' WHERE role_id = :role_id", CommandType.Text, new OracleParameter(":role_id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }
 

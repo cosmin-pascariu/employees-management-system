@@ -2,6 +2,7 @@
 using System.Data;
 using LibrarieModele;
 using Oracle.DataAccess.Client;
+using System;
 
 namespace NivelAccesDate
 {
@@ -13,11 +14,12 @@ namespace NivelAccesDate
         public List<Department> GetDepartments()
         {
             var result = new List<Department>();
-            var dsDepartments = SqlDBHelper.ExecuteDataSet("select * from Departments_SEM", CommandType.Text);
+            var dsDepartments = SqlDBHelper.ExecuteDataSet("select * from Departments_SEM WHERE isDeleted = 'N'", CommandType.Text);
 
             foreach (DataRow lineFromDB in dsDepartments.Tables[FIRST_TABLE].Rows)
             {
                 var department = new Department(lineFromDB);
+                department.Manager = new AdministrareEmployees().GetEmployee(department.manager_id);
                 result.Add(department);
             }
             return result;
@@ -33,6 +35,8 @@ namespace NivelAccesDate
             {
                 DataRow lineFromDB = dsDepartments.Tables[FIRST_TABLE].Rows[FIRST_LINE];
                 result = new Department(lineFromDB);
+                result.Manager = new AdministrareEmployees().GetEmployee(result.manager_id);
+                result = new Department(lineFromDB);
             }
             return result;
         }
@@ -40,9 +44,10 @@ namespace NivelAccesDate
         public bool AddDepartment(Department d)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "insert into Departments_SEM VALUES (seq_Departments_SEM.nextval, :title, :manager_id)", CommandType.Text, 
+                "insert into Departments_SEM VALUES (seq_Departments_SEM.nextval, :title, :manager_id, :isDeleted)", CommandType.Text, 
                 new OracleParameter(":title", OracleDbType.NVarchar2, d.title, ParameterDirection.Input),
-                new OracleParameter(":manager_id", OracleDbType.Int32, d.manager_id, ParameterDirection.Input)
+                new OracleParameter(":manager_id", OracleDbType.Int32, d.manager_id, ParameterDirection.Input),
+                new OracleParameter(":isDeleted", OracleDbType.Char, d.isDeleted, ParameterDirection.Input)
             ); ;
         }
 
@@ -59,7 +64,7 @@ namespace NivelAccesDate
         public bool DeleteDepartment(int id)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "DELETE from Departments_SEM WHERE department_id = :department_id", CommandType.Text, new OracleParameter(":department_id", OracleDbType.Int32, id, ParameterDirection.Input)
+                 "UPDATE Departments_SEM set isDeleted ='Y' WHERE department_id = :department_id", CommandType.Text, new OracleParameter(":department_id", OracleDbType.Int32, id, ParameterDirection.Input)
                 );
         }
 

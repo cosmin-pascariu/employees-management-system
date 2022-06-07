@@ -18,6 +18,7 @@ namespace LibrarieModele
         public DateTime birth_date { get; set; }
         public DateTime hire_date { get; set; }
         public double salary { get; set; }
+        public char isDeleted { get; set; }
 
 
         public Employees()
@@ -25,7 +26,7 @@ namespace LibrarieModele
 
         }
 
-        public Employees( string firstName, string lastName,string cnp, string email, string phoneNumber,DateTime birthDate, DateTime hireDate,double salary, int employeeId = 0)
+        public Employees( string firstName, string lastName,string cnp, string email, string phoneNumber,DateTime birthDate, DateTime hireDate,double salary, int employeeId = 0, char isDeleted = 'N')
         {
             employee_id = employeeId;
             first_name = firstName;
@@ -36,6 +37,7 @@ namespace LibrarieModele
             birth_date = birthDate;
             hire_date = hireDate;
             this.salary = salary;
+            this.isDeleted = isDeleted;
         }
 
         public Employees(DataRow lineFromDB)
@@ -49,6 +51,7 @@ namespace LibrarieModele
             birth_date = Convert.ToDateTime(lineFromDB["birth_date"].ToString());
             hire_date = Convert.ToDateTime(lineFromDB["hire_date"].ToString());
             this.salary = Convert.ToDouble(lineFromDB["salary"].ToString());
+            this.isDeleted = Convert.ToChar(lineFromDB["isDeleted"].ToString());
         }
     }
 }
